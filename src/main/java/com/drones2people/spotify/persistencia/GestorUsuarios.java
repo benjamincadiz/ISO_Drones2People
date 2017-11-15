@@ -44,6 +44,29 @@ public class GestorUsuarios {
         }
     }
 
+    public Usuario selectUser_byDNI (int DNI) {
+        Usuario usuario = new Usuario();
+        String query = "SELECT * FROM Usuario WHERE DNI = ?";
+        try {
+            preparedStatement = agente.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, DNI);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                usuario.setDNI(resultSet.getInt("DNI"));
+                usuario.setNombre(resultSet.getString("Nombre"));
+                usuario.setApellidos(resultSet.getString("Apellidos"));
+                usuario.setEmail(resultSet.getString("email"));
+                usuario.setPassword(resultSet.getString("password"));
+                usuario.setTelefono(resultSet.getString("Telefono"));
+                usuario.setIs_admin(resultSet.getBoolean("isAdmin"));
+                usuario.setIs_artist(resultSet.getBoolean("isArtist"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usuario;
+    }
+
     public Usuario selectUser (String email, String password) {
         Usuario usuario = new Usuario();
         String query = "SELECT * FROM Usuario WHERE email = ? and password = ?";

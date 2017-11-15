@@ -1,8 +1,14 @@
 package com.drones2people.spotify.presentacion;
 
+import com.drones2people.spotify.dominio.Album;
+import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.dominio.Usuario;
+import com.drones2people.spotify.persistencia.GestorAlbums;
+import com.drones2people.spotify.persistencia.GestorCanciones;
 import com.drones2people.spotify.persistencia.GestorUsuarios;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 /**
@@ -10,11 +16,14 @@ import java.util.Scanner;
  */
 public class gui {
     public static void main (String [] args) {
+        Usuario usuarioRegistrado = null;
         boolean seguir = true;
         int opcion;
         Scanner sc = new Scanner(System.in);
         sc.useDelimiter("\n");
         GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        GestorAlbums gestorAlbums = new GestorAlbums();
+        GestorCanciones gestorCanciones = new GestorCanciones();
         do {
             System.out.println("¿Qué quiere hacer?\n1. - Registrar usuario.\n2.- Loggearse\n3. - Salir");
             opcion = sc.nextInt();
@@ -45,8 +54,46 @@ public class gui {
                     System.out.println("Introduce password");
                     password = sc.next();
                     Usuario user = gestorUsuarios.selectUser(email, password);
-                    if (user.getNombre() != null) System.out.println(user.toString());
-                    else System.out.println("Email o password incorrectas");
+                    if (user.getNombre() != null) {
+                        usuarioRegistrado = user;
+                        // Si el usuario puede añadir canciones, albums
+                        if (user.isIs_artist()) {
+                            int option;
+                            Album album = new Album();
+                            Cancion cancion = new Cancion();
+                            System.out.println("Artista registrado. ¿Qué deseas hacer?\n1.- Añadir álbum.\n2.- Añadir canción");
+                            option = sc.nextInt();
+                            switch (option) {
+                                case 1:
+                                    System.out.println("Nombre del álbum:");
+                                    album.setNombre(sc.next());
+                                    System.out.println("Numero de canciones:");
+                                    album.setNumeroCanciones(sc.nextInt());
+                                    System.out.println("Duración del álbum: ");
+                                    album.setDuracion(sc.nextDouble());
+                                    album.setArtista(usuarioRegistrado.getDNI());
+                                    album.setFechaLanzamiento(new Date(new Timestamp(System.currentTimeMillis()).getTime()));
+                                    gestorAlbums.añadirAlbum(album);
+                                    break;
+                                case 2:
+                                    System.out.println("Nombre de la canción:");
+                                    cancion.setNombre(sc.next());
+                                    System.out.println("Álbum: ");
+                                    cancion.setAlbum(sc.nextInt());
+                                    System.out.println("Duración de la canción");
+                                    cancion.setDuracion(sc.nextDouble());
+                                    cancion.setArtista(usuarioRegistrado.getDNI());
+                                    cancion.setDate(new Date(new Timestamp(System.currentTimeMillis()).getTime()));
+                                    gestorCanciones.añadirCancion(cancion);
+                                    break;
+                            }
+                        } else if (user.isIs_admin()) {   // Si el usuario es un administrador...
+
+
+                        } else { // Es un usuario normal
+                        }
+                    } else
+                        System.out.println("Email o password incorrectas");
                     break;
                 case 3:
                     seguir = false;
