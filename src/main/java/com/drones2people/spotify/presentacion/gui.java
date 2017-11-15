@@ -14,13 +14,13 @@ public class gui {
         int opcion;
         Scanner sc = new Scanner(System.in);
         sc.useDelimiter("\n");
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
         do {
-            System.out.println("¿Qué quiere hacer?\n1. - Registrar usuario.\n2. - Salir");
+            System.out.println("¿Qué quiere hacer?\n1. - Registrar usuario.\n2.- Loggearse\n3. - Salir");
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
                     Usuario usuario = new Usuario();
-                    GestorUsuarios gestorUsuarios = new GestorUsuarios();
                     System.out.println("Inserte el DNI del usuario: ");
                     usuario.setDNI(sc.nextInt());
                     System.out.println("Inserte el nombre del usuario: ");
@@ -36,8 +36,21 @@ public class gui {
                     usuario.setIs_admin(false);
                     usuario.setIs_artist(false);
                     gestorUsuarios.insert(usuario);
+                    break;
+
                 case 2:
+                    String email, password;
+                    System.out.println("Introduce email");
+                    email = sc.next();
+                    System.out.println("Introduce password");
+                    password = sc.next();
+                    Usuario user = gestorUsuarios.selectUser(email, password);
+                    if (user.getNombre() != null) System.out.println(user.toString());
+                    else System.out.println("Email o password incorrectas");
+                    break;
+                case 3:
                     seguir = false;
+                    break;
             }
         } while (seguir);
     }

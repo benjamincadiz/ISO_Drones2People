@@ -84,4 +84,18 @@ public class Usuario {
     public void setIs_artist(boolean is_artist) {
         this.is_artist = is_artist;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "DNI=" + DNI +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", is_admin=" + is_admin +
+                ", is_artist=" + is_artist +
+                '}';
+    }
 }

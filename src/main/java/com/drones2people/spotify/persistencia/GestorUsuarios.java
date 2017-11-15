@@ -3,6 +3,7 @@ package com.drones2people.spotify.persistencia;
 import com.drones2people.spotify.dominio.Usuario;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -41,5 +42,29 @@ public class GestorUsuarios {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public Usuario selectUser (String email, String password) {
+        Usuario usuario = new Usuario();
+        String query = "SELECT * FROM Usuario WHERE email = ? and password = ?";
+        try {
+            preparedStatement = agente.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                usuario.setDNI(resultSet.getInt("DNI"));
+                usuario.setNombre(resultSet.getString("Nombre"));
+                usuario.setApellidos(resultSet.getString("Apellidos"));
+                usuario.setEmail(resultSet.getString("email"));
+                usuario.setPassword(resultSet.getString("password"));
+                usuario.setTelefono(resultSet.getString("Telefono"));
+                usuario.setIs_admin(resultSet.getBoolean("isAdmin"));
+                usuario.setIs_artist(resultSet.getBoolean("isArtist"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usuario;
     }
 }
