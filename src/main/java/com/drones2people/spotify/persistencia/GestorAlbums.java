@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by ivangarrera on 15/11/17.
+ * @author ivangarrera
  */
 public class GestorAlbums {
     private ArrayList<Album> albums;

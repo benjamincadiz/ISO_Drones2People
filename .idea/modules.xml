@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/d2pSpotify.iml" filepath="$PROJECT_DIR$/d2pSpotify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-pagospaypal/d2pSpotify-pagospaypal.iml" filepath="$PROJECT_DIR$/d2pSpotify-pagospaypal/d2pSpotify-pagospaypal.iml" />
     </modules>
   </component>
 </project>

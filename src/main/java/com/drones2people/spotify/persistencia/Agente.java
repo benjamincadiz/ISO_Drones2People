@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * Created by @ivangarrera on 14/11/17.
+ * @author ivangarrera
  */
 
 public class Agente {
