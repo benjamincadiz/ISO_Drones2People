@@ -4,11 +4,6 @@ import com.drones2people.spotify.dominio.Album;
 import com.drones2people.spotify.persistencia.GestorAlbums;
 import com.drones2people.spotify.persistencia.GestorCanciones;
 
-
-/**
- * Hello world!
- *
- */
 public class DelCancion
 {
     public int eliminarCancion(Cancion cancion){
