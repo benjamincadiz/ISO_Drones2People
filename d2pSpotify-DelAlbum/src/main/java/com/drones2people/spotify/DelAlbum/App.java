@@ -1,4 +1,4 @@
-package com.drones2people.spotify;
+package com.drones2people.spotify.DelAlbum;
 
 /**
  * Hello world!
@@ -6,7 +6,8 @@ package com.drones2people.spotify;
  */
 public class App 
 {
-    public static void main( String[] args ) {
+    public static void main( String[] args )
+    {
         System.out.println( "Hello World!" );
     }
 }
