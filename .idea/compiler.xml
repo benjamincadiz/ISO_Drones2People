@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="d2pSpotify" />
+        <module name="d2pSpotify-EnviarMensaje" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="d2pSpotify" target="1.5" />
+      <module name="d2pSpotify-EnviarMensaje" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
