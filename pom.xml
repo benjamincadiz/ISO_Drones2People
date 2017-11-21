@@ -22,5 +22,6 @@
   </dependencies>
   <modules>
     <module>d2pSpotify-PlaySong</module>
+    <module>d2pSpotify-delcancion</module>
   </modules>
 </project>
