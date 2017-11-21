@@ -21,6 +21,7 @@
       </dependency>
   </dependencies>
   <modules>
+    <module>d2pSpotify-BuscarCancion</module>
     <module>d2pSpotify-EnviarMensaje</module>
     <module>d2pSpotify-DelAlbum</module>
     <module>d2pSpotify-DeleteUser</module>
