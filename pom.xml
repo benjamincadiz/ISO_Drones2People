@@ -22,5 +22,10 @@
   </dependencies>
   <modules>
     <module>d2pSpotify-DeleteUser</module>
+    <module>d2pSpotify-BuySong</module>
+    <module>d2pSpotify-ModifySong</module>
+    <module>d2pSpotify-PlaySong</module>
+    <module>d2pSpotify-delcancion</module>
+    <module>d2pSpotify-Delcancion</module>
   </modules>
 </project>
