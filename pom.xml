@@ -24,5 +24,6 @@
     <module>d2pSpotify-ModifySong</module>
     <module>d2pSpotify-PlaySong</module>
     <module>d2pSpotify-delcancion</module>
+    <module>d2pSpotify-Delcancion</module>
   </modules>
 </project>
