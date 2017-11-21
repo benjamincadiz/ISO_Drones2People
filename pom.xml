@@ -21,6 +21,10 @@
       </dependency>
   </dependencies>
   <modules>
+<<<<<<< HEAD
     <module>d2pSpotify-delcancion</module>
+=======
+    <module>d2pSpotify-Delcancion</module>
+>>>>>>> 681ea7fbbb6d9e1cdfbf87c12a4b3840fe6f4bef
   </modules>
 </project>
