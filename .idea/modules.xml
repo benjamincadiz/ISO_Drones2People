@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/d2pSpotify.iml" filepath="$PROJECT_DIR$/d2pSpotify.iml" />
-      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-BuscarCancion/d2pSpotify-BuscarCancion.iml" filepath="$PROJECT_DIR$/d2pSpotify-BuscarCancion/d2pSpotify-BuscarCancion.iml" />
-    </modules>
-  </component>
-</project>
