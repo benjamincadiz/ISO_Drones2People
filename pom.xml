@@ -21,6 +21,7 @@
       </dependency>
   </dependencies>
   <modules>
+    <module>d2pSpotify-DeleteUser</module>
     <module>d2pSpotify-BuySong</module>
     <module>d2pSpotify-ModifySong</module>
     <module>d2pSpotify-PlaySong</module>
