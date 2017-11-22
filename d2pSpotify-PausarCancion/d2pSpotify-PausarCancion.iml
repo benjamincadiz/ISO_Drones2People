@@ -12,6 +12,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="module" module-name="d2pSpotify" />
+    <orderEntry type="module" module-name="d2pSpotify-PlaySong" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.4" level="project" />
   </component>
 </module>

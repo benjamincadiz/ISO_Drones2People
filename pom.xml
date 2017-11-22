@@ -31,6 +31,6 @@
     <module>d2pSpotify-ModifySong</module>
     <module>d2pSpotify-PlaySong</module>
     <module>d2pSpotify-delcancion</module>
-    <module>d2pSpotify-Delcancion</module>
+    <module>d2pSpotify-PausarCancion</module>
   </modules>
 </project>
