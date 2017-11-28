@@ -21,6 +21,7 @@
       </dependency>
   </dependencies>
   <modules>
+    <module>d2pSpotify-pagospaypal</module>
     <module>d2pSpotify-descargarCancion</module>
     <module>d2pSpotify-buyalbum</module>
     <module>d2pSpotify-BuscarCancion</module>
@@ -32,5 +33,7 @@
     <module>d2pSpotify-PlaySong</module>
     <module>d2pSpotify-delcancion</module>
     <module>d2pSpotify-DeletePlayList</module>
+    <module>d2pSpotify-PausarCancion</module>
+    <module>d2pSpotify-DescargarAlbum</module>
   </modules>
 </project>
