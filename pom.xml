@@ -32,6 +32,7 @@
     <module>d2pSpotify-ModifySong</module>
     <module>d2pSpotify-PlaySong</module>
     <module>d2pSpotify-delcancion</module>
+    <module>d2pSpotify-AddSongPlaylist</module>
     <module>d2pSpotify-PausarCancion</module>
     <module>d2pSpotify-DescargarAlbum</module>
   </modules>
