@@ -1,7 +1,7 @@
 package com.drones2people.spotify.dominio;
 
 /**
- * Created by ivangarrera on 15/11/17.
+ * @author ivangarrera
  */
 public class Usuario {
     private int DNI;
