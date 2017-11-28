@@ -1,10 +1,19 @@
+package com.drones2people.spotify.DelAlbum;
+
 import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.dominio.Album;
-import com.drones2people.spotify.dominio.GestorAlbums;
-import com.drones2people.spotify.dominio.GestorCanciones;
+import com.drones2people.spotify.dominio.Usuario;
+import com.drones2people.spotify.persistencia.Agente;
+import com.drones2people.spotify.persistencia.GestorUsuarios;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DelAlbum
 {
+    PreparedStatement preparedStatement;
+    GestorUsuarios gestorUsuarios;
+    Agente agente;
 public void eliminarAlbum(Album album) {
         int artista = album.getArtista();
         Usuario usuario = gestorUsuarios.selectUser_byDNI(artista);

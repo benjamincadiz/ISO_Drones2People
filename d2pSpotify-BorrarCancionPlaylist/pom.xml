@@ -7,10 +7,10 @@
     <artifactId>d2pSpotify</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.drones2people.spotify.DelAlbum</groupId>
-  <artifactId>d2pSpotify-DelAlbum</artifactId>
+  <groupId>com.drones2people.spotify.BorrarCancionPlaylist</groupId>
+  <artifactId>d2pSpotify-BorrarCancionPlaylist</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>d2pSpotify-DelAlbum</name>
+  <name>d2pSpotify-BorrarCancionPlaylist</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -19,10 +19,10 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>com.drones2people.spotify</groupId>
-          <artifactId>d2pSpotify</artifactId>
-          <version>1.0-SNAPSHOT</version>
-      </dependency>
+    <dependency>
+      <groupId>com.drones2people.spotify</groupId>
+      <artifactId>d2pSpotify</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

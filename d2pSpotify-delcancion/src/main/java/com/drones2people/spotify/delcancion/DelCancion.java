@@ -1,11 +1,21 @@
 package com.drones2people.spotify.delcancion;
 import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.dominio.Album;
+import com.drones2people.spotify.dominio.Usuario;
+import com.drones2people.spotify.persistencia.Agente;
 import com.drones2people.spotify.persistencia.GestorAlbums;
 import com.drones2people.spotify.persistencia.GestorCanciones;
+import com.drones2people.spotify.persistencia.GestorUsuarios;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DelCancion
 {
+    PreparedStatement preparedStatement;
+    GestorUsuarios gestorUsuarios;
+    GestorAlbums gestorAlbums;
+    Agente agente;
     public int eliminarCancion(Cancion cancion){
         //exit_code=0 -> cancion eliminada correctamente
         int exit_code=0;
