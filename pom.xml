@@ -22,6 +22,12 @@
   </dependencies>
   <modules>
     <module>d2pSpotify-pagospaypal</module>
+    <module>d2pSpotify-descargarCancion</module>
+    <module>d2pSpotify-buyalbum</module>
+    <module>d2pSpotify-BuscarCancion</module>
+    <module>d2pSpotify-EnviarMensaje</module>
+    <module>d2pSpotify-DelAlbum</module>
+    <module>d2pSpotify-DeleteUser</module>
     <module>d2pSpotify-BuySong</module>
     <module>d2pSpotify-ModifySong</module>
     <module>d2pSpotify-PlaySong</module>
