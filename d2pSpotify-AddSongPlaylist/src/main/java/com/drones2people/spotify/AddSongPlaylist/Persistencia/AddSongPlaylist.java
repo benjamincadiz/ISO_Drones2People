@@ -1,13 +1,11 @@
 package com.drones2people.spotify.AddSongPlaylist.Persistencia;
 import com.drones2people.spotify.PlaySong.PlaySong;
 import com.drones2people.spotify.dominio.Cancion;
-import com.drones2people.spotify.crearplaylist;
-import com.drones2people.spotify.dominio.Usuario;
+
 import com.drones2people.spotify.persistencia.Agente;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 /**
  * Hello world!

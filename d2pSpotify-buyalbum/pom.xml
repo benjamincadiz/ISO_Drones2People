@@ -19,5 +19,15 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.drones2people.spotify</groupId>
+      <artifactId>d2pSpotify</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.drones2people.spotify.pagospaypal</groupId>
+      <artifactId>d2pSpotify-pagospaypal</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

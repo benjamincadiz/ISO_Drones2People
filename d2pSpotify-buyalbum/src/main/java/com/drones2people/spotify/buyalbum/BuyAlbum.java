@@ -1,5 +1,6 @@
 package com.drones2people.spotify.buyalbum;
-
+import com.drones2people.spotify.dominio.Album;
+import com.drones2people.spotify.pagospaypal.PagosPaypal;
 /**
  * Hello world!
  *

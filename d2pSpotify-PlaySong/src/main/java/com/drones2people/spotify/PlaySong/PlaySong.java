@@ -42,7 +42,7 @@ public class PlaySong {
         }
         return song;
     }
-    public static void(String[]args){
+    public static void main(String[]args) {
         Scanner sc = new Scanner(System.in);
         PlaySong playSong = new PlaySong();
 
@@ -50,7 +50,7 @@ public class PlaySong {
             String nombre = sc.next();
             System.out.println("Introduce el dni del artista");
             int artista = sc.nextInt();
-            playSong.PlaySong();
+            playSong.PlaySong(nombre, artista);
 
 
     }

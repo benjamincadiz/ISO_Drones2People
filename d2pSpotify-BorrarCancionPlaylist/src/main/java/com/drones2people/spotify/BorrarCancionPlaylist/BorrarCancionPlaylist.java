@@ -1,7 +1,7 @@
 package com.drones2people.spotify.BorrarCancionPlaylist;
 
-import com.drones2people.spotify.dominio.Usuario;
 import com.drones2people.spotify.persistencia.Agente;
+import com.drones2people.spotify.crearplaylist.dominio.PlayList;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

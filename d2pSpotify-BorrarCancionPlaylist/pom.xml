@@ -24,5 +24,10 @@
       <artifactId>d2pSpotify</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>com.drones2people.spotify.crearplaylist</groupId>
+      <artifactId>d2pSpotify-crearplaylist</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
