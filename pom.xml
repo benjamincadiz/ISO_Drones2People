@@ -1,9 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.drones2people.spotify</groupId>
   <artifactId>d2pSpotify</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>d2pSpotify</name>
   <url>http://maven.apache.org</url>
@@ -14,5 +14,29 @@
       <version>3.8.1</version>
       <scope>compile</scope>
     </dependency>
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>6.0.4</version>
+      </dependency>
   </dependencies>
+  <modules>
+    <module>d2pSpotify-pagospaypal</module>
+    <module>d2pSpotify-descargarCancion</module>
+    <module>d2pSpotify-buyalbum</module>
+    <module>d2pSpotify-BuscarCancion</module>
+    <module>d2pSpotify-EnviarMensaje</module>
+    <module>d2pSpotify-DelAlbum</module>
+    <module>d2pSpotify-DeleteUser</module>
+    <module>d2pSpotify-BuySong</module>
+    <module>d2pSpotify-ModifySong</module>
+    <module>d2pSpotify-PlaySong</module>
+    <module>d2pSpotify-delcancion</module>
+    <module>d2pSpotify-DeletePlayList</module>
+    <module>d2pSpotify-BorrarCancionPlaylist</module>
+    <module>d2pSpotify-crearplaylist</module>
+    <module>d2pSpotify-AddSongPlaylist</module>
+    <module>d2pSpotify-PausarCancion</module>
+    <module>d2pSpotify-DescargarAlbum</module>
+  </modules>
 </project>
