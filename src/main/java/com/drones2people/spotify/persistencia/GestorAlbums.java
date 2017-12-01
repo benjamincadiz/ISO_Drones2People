@@ -71,5 +71,26 @@ public class GestorAlbums {
 
         return album;
     }
+
+    public ArrayList<Album> getListaAlbums() {
+        String query = "SELECT * FROM Album;";
+        try {
+            preparedStatement = agente.getConnection().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Album album = new Album();
+                album.setArtista(resultSet.getInt("Artista"));
+                album.setNombre(resultSet.getString("Nombre"));
+                album.setID(resultSet.getInt("ID"));
+                album.setDuracion(resultSet.getDouble("Duracion"));
+                album.setNumeroCanciones(resultSet.getInt("NumeroCanciones"));
+                album.setFechaLanzamiento(resultSet.getDate("FechaLanzamiento"));
+                albums.add(album);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return albums;
+    }
   
 }

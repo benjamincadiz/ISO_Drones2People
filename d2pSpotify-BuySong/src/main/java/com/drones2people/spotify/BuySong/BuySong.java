@@ -10,7 +10,6 @@ import com.drones2people.spotify.persistencia.GestorUsuarios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 /**
  * Hello world!
@@ -69,29 +68,5 @@ public class BuySong {
         PagosPaypal pp = new PagosPaypal();
         result = pp.pagar();
         return result;
-    }
-    public static void main(String[]args) {
-        BuySong buySong = new BuySong();
-        Scanner sc = new Scanner(System.in);
-        GestorUsuarios gestorUsuarios = new GestorUsuarios();
-        GestorAlbums gestorAlbums = new GestorAlbums();
-        GestorCanciones gestorCanciones = new GestorCanciones();
-        int option;
-        Cancion song = new Cancion();
-        System.out.println("Usuario registrado. ¿Qué deseas hacer?\n1.- Comprar cancion.\n2.- Comprar album");
-        option = sc.nextInt();
-        switch (option) {
-            case 1:
-                System.out.println("Escriba el nombre de la cancion\n");
-                String nombre_song = sc.next();
-                System.out.println("Escriba el nombre del artista\n");
-                String nombre_artista = sc.next();
-                Usuario useer = buySong.selectUser_byName(nombre_artista);
-                song = buySong.selectSong(nombre_song, useer.getDNI());
-                if (buySong.buySong(song)) {
-                    System.out.println("Pago realizado con exito");
-                } else System.out.println("Ha ocurrido un error con el pago");
-                break;
-        }
     }
 }

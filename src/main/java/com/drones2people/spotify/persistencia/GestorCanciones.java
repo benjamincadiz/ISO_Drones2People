@@ -56,4 +56,24 @@ public class GestorCanciones {
         }
         return exit_code;
     }
+
+    public ArrayList<Cancion> getListaCanciones() {
+        String query = "SELECT * FROM Cancion;";
+        try {
+            preparedStatement = agente.getConnection().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Cancion cancion = new Cancion();
+                cancion.setArtista(resultSet.getInt("Artista"));
+                cancion.setNombre(resultSet.getString("Nombre"));
+                cancion.setDate(resultSet.getDate("Año"));
+                cancion.setDuracion(resultSet.getDouble("Duracion"));
+                cancion.setAlbum(resultSet.getInt("Album"));
+                canciones.add(cancion);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return canciones;
+    }
 }
