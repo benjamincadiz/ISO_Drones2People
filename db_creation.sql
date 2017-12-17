@@ -2,7 +2,7 @@ CREATE TABLE Usuario (
   DNI       int(8) NOT NULL AUTO_INCREMENT, 
   Nombre    varchar(40), 
   Apellidos varchar(50), 
-  email     varchar(255) UNIQUE, 
+  email     varchar(255),
   password  varchar(255), 
   Telefono  varchar(12), 
   isAdmin   tinyint DEFAULT 0, 
