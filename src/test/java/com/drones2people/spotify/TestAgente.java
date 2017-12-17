@@ -49,7 +49,7 @@ public class TestAgente {
         } catch (IOException ioex) {
             ioex.printStackTrace();
         }
-        assertTrue(agente.getConnection() == null);
+        assertNull(agente.getConnection());
     }
 
     @Test

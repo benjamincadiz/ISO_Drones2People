@@ -6,6 +6,7 @@ import com.drones2people.spotify.dominio.Album;
 import com.drones2people.spotify.dominio.Usuario;
 import com.drones2people.spotify.persistencia.GestorAlbums;
 import com.drones2people.spotify.persistencia.GestorUsuarios;
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,14 +28,14 @@ public class TestGestorAlbums {
 
     @Test(expected = SQLException.class)
     public void addAlbumWithNegativeArtist() {
-        Album album = new Album(403, -4654650, 10, "Album", 321.30,
+        Album album = new Album(-4654650, 10, "Album", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
     }
 
     @Test(expected = SQLException.class)
     public void addAlbumWithVeryLongArtist() {
-        Album album = new Album(413, 123456789, 10, "Album", 321.30,
+        Album album = new Album(123456789, 10, "Album", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
     }
@@ -47,7 +48,7 @@ public class TestGestorAlbums {
             "foopass", "666777666",
             false, true);
         gestorUsuarios.insert(usuario);
-        Album album = new Album(423, usuario.getDNI(), 10, null, 321.30,
+        Album album = new Album(usuario.getDNI(), 10, null, 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         try {
             gestorAlbums.añadirAlbum(album);
@@ -65,7 +66,7 @@ public class TestGestorAlbums {
                 "foopass", "666777666",
                 false, true);
         gestorUsuarios.insert(usuario);
-        Album album = new Album(433, usuario.getDNI(), 10, "", 321.30,
+        Album album = new Album(usuario.getDNI(), 10, "", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         try {
             gestorAlbums.añadirAlbum(album);
@@ -75,7 +76,7 @@ public class TestGestorAlbums {
         assertNull(ex);
     }
 
-    @Test(expected = SQLException.class)
+    @Test(expected = MysqlDataTruncation.class)
     public void addAlbumWithVeryLongName() {
         Usuario usuario = new Usuario(98906445, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -85,7 +86,7 @@ public class TestGestorAlbums {
         String name = "Loj87P3ZOBrjuF4UfQ8c7GqOhnezH23b6DRsEj4xVD67m99fKqossxxkRSqsltlHWBNznIEGNNXXgigPGuTCGpUejOVX0O" +
                 "sSx5v7AlB1G8VmmIYxvBxDqgIrqThNGAEEOqHfPuEKLW4k6P6FhteqGidvB9R8gIs9pxGnQqRkEhXeHO1BZ3efFYOL4HlLM7blHX" +
                 "1i7Xe2g3fClZ5tJgEPWfADTBvFXeILck00PP72ahu4SnWyavLdIcJ3eRlnqqjW";
-        Album album = new Album(443, usuario.getDNI(), 10, name, 321.30,
+        Album album = new Album(usuario.getDNI(), 10, name, 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
     }
@@ -97,7 +98,7 @@ public class TestGestorAlbums {
                 false, true);
         gestorUsuarios.insert(usuario);
 
-        Album album = new Album(453, usuario.getDNI(), -10, "name", 321.30,
+        Album album = new Album(usuario.getDNI(), -10, "name", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
     }
@@ -109,7 +110,7 @@ public class TestGestorAlbums {
                 false, true);
         gestorUsuarios.insert(usuario);
 
-        Album album = new Album(463, usuario.getDNI(), 1000, "name", 321.30,
+        Album album = new Album(usuario.getDNI(), 1000, "name", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
     }
@@ -123,7 +124,7 @@ public class TestGestorAlbums {
                 false, true);
         gestorUsuarios.insert(usuario);
 
-        Album album = new Album(473, usuario.getDNI(), 17, "name", 321.30,
+        Album album = new Album(usuario.getDNI(), 17, "name", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         try {
             gestorAlbums.añadirAlbum(album);
@@ -140,7 +141,7 @@ public class TestGestorAlbums {
                 false, true);
         gestorUsuarios.insert(usuario);
 
-        Album album = new Album(483, usuario.getDNI(), 17, "name", 321.30,
+        Album album = new Album(usuario.getDNI(), 17, "name", 321.30,
                 null);
         gestorAlbums.añadirAlbum(album);
     }
@@ -152,7 +153,7 @@ public class TestGestorAlbums {
                 false, true);
         gestorUsuarios.insert(usuario);
 
-        Album album = new Album(493, usuario.getDNI(), 17, "name", 321.30,
+        Album album = new Album(usuario.getDNI(), 17, "name", 321.30,
                 null);
         gestorAlbums.añadirAlbum(album);
 
@@ -172,7 +173,7 @@ public class TestGestorAlbums {
                 false, true);
         gestorUsuarios.insert(usuario);
 
-        Album album = new Album(503, usuario.getDNI(), 17, "name", 321.30,
+        Album album = new Album(usuario.getDNI(), 17, "name", 321.30,
                 null);
         gestorAlbums.añadirAlbum(album);
         Album recovered = gestorAlbums.selectAlbum_byID(album.getID());

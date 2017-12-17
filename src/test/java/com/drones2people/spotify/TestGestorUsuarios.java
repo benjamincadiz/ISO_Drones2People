@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import com.drones2people.spotify.dominio.Usuario;
 import com.drones2people.spotify.persistencia.GestorUsuarios;
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,7 +43,7 @@ public class TestGestorUsuarios {
         gestorUsuarios.selectUser_byDNI(DNI);
     }
 
-    @Test(expected = SQLException.class)
+    @Test(expected = NullPointerException.class)
     public void InsertNullUser() {
         Usuario usuario = null;
         gestorUsuarios.insert(usuario);
@@ -68,7 +69,6 @@ public class TestGestorUsuarios {
     public void SelectNonExistingUser() {
         Usuario usuario = gestorUsuarios.selectUser("noexist@noexist.com", "noexist");
         assertNull(usuario.getNombre());
-
     }
 
     @Test
@@ -78,5 +78,107 @@ public class TestGestorUsuarios {
                 false, false);
         Usuario recovered = gestorUsuarios.selectUser(usuario.getEmail(), usuario.getPassword());
         assertNotNull(recovered.getNombre());
+    }
+
+    @Test(expected = SQLException.class)
+    public void InsertUserNegativeDNI() {
+        Usuario usuario = new Usuario(-99545455, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = MysqlDataTruncation.class)
+    public void InsertUserVeryLongDNI() {
+        Usuario usuario = new Usuario(999545455, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test
+    public void InsertUserWithCorrectDNI() {
+        Exception ex = null;
+        Usuario usuario = new Usuario(78945632, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        try {
+            gestorUsuarios.insert(usuario);
+        } catch (Exception e) {
+            ex = e;
+        }
+        assertNull(ex);
+    }
+
+    @Test(expected = SQLException.class)
+    public void InsertUserNullName() {
+        Usuario usuario = new Usuario(78935632, null, "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = MysqlDataTruncation.class)
+    public void InsertUserVeryLongName() {
+        String name = "Ji9CromUIMvm2QhBF5PHpEXszoKSyUH0hNKKZDmiU";
+        Usuario usuario = new Usuario(78935642, name, "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = SQLException.class)
+    public void InsertUserNullSurname() {
+        Usuario usuario = new Usuario(72935632, "foo", null, "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = MysqlDataTruncation.class)
+    public void InsertUserVeryLongSurname() {
+        String surname = "ePTQPVx008Z6OljerI8RlYVIlbQyfX9tC2nhmj5W9nHQciTJt2E";
+        Usuario usuario = new Usuario(72915632, "foo", surname, "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = SQLException.class)
+    public void InsertUserNullEmail() {
+        Usuario usuario = new Usuario(72915322, "foo", "foo", null,
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = MysqlDataTruncation.class)
+    public void InsertUserVeryLongEmail() {
+        String email = "AA23fZCVYQENmvJYCYsrXi3eYboZRCJVoy4HOUU9RdKVrqjpooCt5NC3Bq3cXW5k2T1V5cOVXlGPGcYqxIrfS7TcHO" +
+                "ZysdpQXziWZiNp2P50miS9xRk78kPBidhfTvvvtlrziE7rrt8Q5zEmGkyvRtMilqOQDbA5YSpfv0cl79qqyDkecqerA6xrNg8" +
+                "e9GXwrTwDQjwmVbOa6LwXnDlE4AcgeNQ4zSPSI4LbFCpkislCXfY4A5uT3kLNa50yeyi8";
+        Usuario usuario = new Usuario(72911324, "foo", "foo", email,
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = SQLException.class)
+    public void InsertUserNullPassword() {
+        Usuario usuario = new Usuario(72415622, "foo", "foo", "foo@foo.com",
+                null, "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+    }
+
+    @Test(expected = MysqlDataTruncation.class)
+    public void InsertUserVeryLongPassword() {
+        String pass = "AA23fZCVYQENmvJYCYsrXi3eYboZRCJVoy4HOUU9RdKVrqjpooCt5NC3Bq3cXW5k2T1V5cOVXlGPGcYqxIrfS7TcHO" +
+                "ZysdpQXziWZiNp2P50miS9xRk78kPBidhfTvvvtlrziE7rrt8Q5zEmGkyvRtMilqOQDbA5YSpfv0cl79qqyDkecqerA6xrNg8" +
+                "e9GXwrTwDQjwmVbOa6LwXnDlE4AcgeNQ4zSPSI4LbFCpkislCXfY4A5uT3kLNa50yeyi8";
+        Usuario usuario = new Usuario(72231534, "foo", "foo", "foo@foo.com",
+                pass, "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
     }
 }
