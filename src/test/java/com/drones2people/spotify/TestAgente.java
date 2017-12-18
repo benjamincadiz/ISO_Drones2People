@@ -41,18 +41,6 @@ public class TestAgente {
     }
 
     @Test
-    public void canCloseConnection() {
-        try {
-            agente.closeConnection();
-        } catch (SQLException sqlex) {
-            sqlex.printStackTrace();
-        } catch (IOException ioex) {
-            ioex.printStackTrace();
-        }
-        assertNull(agente.getConnection());
-    }
-
-    @Test
     public void readProperly() {
         String sql = "SELECT * FROM Usuario";
         try {

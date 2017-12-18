@@ -8,6 +8,7 @@ import com.drones2people.spotify.persistencia.GestorCanciones;
 import com.drones2people.spotify.persistencia.GestorUsuarios;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -80,7 +81,11 @@ public class gui {
         usuario.setPassword(sc.next());
         usuario.setIs_admin(false);
         usuario.setIs_artist(false);
-        gestorUsuarios.insert(usuario);
+        try {
+            gestorUsuarios.insert(usuario);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static Usuario loggearse(GestorUsuarios gestorUsuarios) {
@@ -89,7 +94,12 @@ public class gui {
         email = sc.next();
         System.out.println("Introduce password");
         password = sc.next();
-        Usuario user = gestorUsuarios.selectUser(email, password);
+        Usuario user = null;
+        try {
+            user = gestorUsuarios.selectUser(email, password);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         return user;
     }
 
@@ -109,18 +119,26 @@ public class gui {
                 album.setDuracion(sc.nextDouble());
                 album.setArtista(usuarioRegistrado.getDNI());
                 album.setFechaLanzamiento(new Date(new Timestamp(System.currentTimeMillis()).getTime()));
-                gestorAlbums.añadirAlbum(album);
+                try {
+                    gestorAlbums.añadirAlbum(album);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 break;
             case 2:
                 System.out.println("Nombre de la canción:");
                 cancion.setNombre(sc.next());
                 System.out.println("Álbum: ");
-                cancion.setAlbum(sc.nextInt());
+                cancion.setAlbum(sc.next());
                 System.out.println("Duración de la canción");
                 cancion.setDuracion(sc.nextDouble());
                 cancion.setArtista(usuarioRegistrado.getDNI());
                 cancion.setDate(new Date(new Timestamp(System.currentTimeMillis()).getTime()));
-                gestorCanciones.añadirCancion(cancion);
+                try {
+                    gestorCanciones.añadirCancion(cancion);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 break;
             case 3:
                 break;
@@ -137,7 +155,12 @@ public class gui {
         switch (option) {
             case 1:
                 int i = 0;
-                ArrayList<Cancion> canciones = gestorCanciones.getListaCanciones();
+                ArrayList<Cancion> canciones = null;
+                try {
+                    canciones = gestorCanciones.getListaCanciones();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 System.out.println("Elija la canción que desea");
                 for (Cancion cancion : canciones){
                     System.out.println(i + 1 + " - " + cancion.getNombre());
@@ -150,7 +173,12 @@ public class gui {
                 break;
             case 2:
                 i = 0;
-                ArrayList<Album> albums = gestorAlbums.getListaAlbums();
+                ArrayList<Album> albums = null;
+                try {
+                    albums = gestorAlbums.getListaAlbums();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 System.out.println("Elija el álbum que desea");
                 for (Album album : albums){
                     System.out.println(i + 1 + " - " + album.getNombre());

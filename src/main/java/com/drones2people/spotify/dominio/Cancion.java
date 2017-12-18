@@ -6,14 +6,14 @@ import java.sql.Date;
  * @author ivangarrera
  */
 public class Cancion {
-    private String nombre;
-    private int artista, album;
+    private String nombre, album;
+    private int artista;
     private double duracion;
     private Date date;
 
     public Cancion () {}
 
-    public Cancion(String nombre, int artista, int album, double duracion, Date date) {
+    public Cancion(String nombre, int artista, String album, double duracion, Date date) {
         this.nombre = nombre;
         this.artista = artista;
         this.album = album;
@@ -37,11 +37,11 @@ public class Cancion {
         this.artista = artista;
     }
 
-    public int getAlbum() {
+    public String getAlbum() {
         return album;
     }
 
-    public void setAlbum(int album) {
+    public void setAlbum(String album) {
         this.album = album;
     }
 
