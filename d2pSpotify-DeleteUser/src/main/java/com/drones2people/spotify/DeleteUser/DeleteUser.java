@@ -20,22 +20,17 @@ public class DeleteUser  {
     PreparedStatement preparedStatement;
     Agente agente;
 
-    public int DeleteUser(int dni){
+    public int DeleteUser(int dni) throws SQLException{
         //exit_code=0 -> cancion eliminada correctamente
-        int exit_code=0;
+        int exit_code=1;
         String query="DELETE FROM Usuario WHERE DNI="+dni;
-        try {
-            preparedStatement = agente.getConnection().prepareStatement(query);
-            preparedStatement.execute();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            exit_code=1;
-        }
+        preparedStatement = agente.getConnection().prepareStatement(query);
+        preparedStatement.execute();
 
         return exit_code;
 
     }
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws SQLException {
         DeleteUser deleteUser = new DeleteUser();
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el DNI del usuario a eliminar\n");

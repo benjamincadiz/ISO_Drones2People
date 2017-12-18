@@ -1,12 +1,13 @@
 package com.drones2people.spotify.AddSongPlaylist.Presentacion;
 import com.drones2people.spotify.AddSongPlaylist.Persistencia.AddSongPlaylist;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class gui {
 
 
-    public static void main(String[]args){
+    public static void main(String[]args) throws SQLException{
         AddSongPlaylist addSongPlaylist = new AddSongPlaylist();
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el nombre de la cancion\n");
