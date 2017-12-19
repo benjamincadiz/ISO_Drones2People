@@ -26,10 +26,10 @@ public class ModifySong {
     public int ModifySong(Cancion cancion, int option) throws SQLException {
         int exit_code = 0;
         Usuario user = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
-        Album album = gestorAlbums.selectAlbum_byID(cancion.getAlbum());
+        Album album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());
         // Si existe el usuario en la base de datos y además tiene permisos para añadir canciones...
         if (user.getNombre() != null && (user.isIs_admin() == true || user.isIs_artist() == true) && album.getNombre() != null) {
-            String query = "INSERT INTO Cancion VALUES (?,?,?,?,?);";
+            String query = "UPDATE Cancion SET()";
 
             preparedStatement = agente.getConnection().prepareStatement(query);
             switch (option){
@@ -43,7 +43,7 @@ public class ModifySong {
                     preparedStatement.setDate(3, cancion.getDate());
                     break;
                 case 4:
-                    preparedStatement.setInt(4, cancion.getAlbum());
+                    preparedStatement.setString(4, cancion.getAlbum());
                     break;
                 case 5:
                     preparedStatement.setDouble(5, cancion.getDuracion());
@@ -83,7 +83,7 @@ public class ModifySong {
                 break;
             case 4:
                 System.out.println("Escriba el nuevo album que quiere cambiar:\n");
-                int albu = sc.nextInt();
+                String albu = sc.next();
                 cancion.setAlbum(albu);
                 break;
             case 5:

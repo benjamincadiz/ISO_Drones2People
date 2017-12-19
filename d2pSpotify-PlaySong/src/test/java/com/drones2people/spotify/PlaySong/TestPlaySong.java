@@ -15,6 +15,7 @@ public class TestPlaySong {
     private Cancion cancion;
     private Usuario usuario;
     private PlaySong playSong;
+
     @Before
     public void setUp() {
         cancion = new Cancion();
@@ -23,50 +24,40 @@ public class TestPlaySong {
 
     }
 
-
     @Test(expected = NullPointerException.class)
     public void playSongNull()throws SQLException {
         cancion  = null;
         usuario = null;
         playSong.PlaySong(cancion.getNombre(),usuario.getDNI());
     }
-    @Test(expected = SQLException.class)
+
+    @Test(expected = NullPointerException.class)
     public void playSongWithArtistNull() throws SQLException{
-        Exception ex = null;
-        cancion = new Cancion("Name", usuario.getDNI(), 1,
+        cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         usuario = null;
-        try{
-            playSong.PlaySong(cancion.getNombre(),usuario.getDNI());
-        }catch (Exception e){
-            ex = e;
-        }
-        assertNull(ex);
+
+        playSong.PlaySong(cancion.getNombre(),usuario.getDNI());
     }
 
-    @Test(expected = SQLException.class)
+    @Test(expected = NullPointerException.class)
     public void playSongWithSongNull() throws SQLException {
-        Exception ex = null;
         cancion = null;
-        Usuario usuario = new Usuario(1182389238, "Foo", "Foo", "foo@foo.com",
+        Usuario usuario = new Usuario(11823892, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
-        try{
-            playSong.PlaySong(cancion.getNombre(),usuario.getDNI());
-        }catch (Exception e){
-            ex = e;
-        }
-        assertNull(ex);
+
+        playSong.PlaySong(cancion.getNombre(),usuario.getDNI());
     }
+
     @Test
     public void playSongRight() throws SQLException{
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 true, false);
-        Cancion cancion = new Cancion("Name", usuario.getDNI(), 1,
+        Cancion cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         assertEquals(0,playSong.PlaySong(cancion.getNombre(),usuario.getDNI()));
     }
-
 
 }

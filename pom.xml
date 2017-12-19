@@ -22,6 +22,7 @@
     <build>
         <finalName>d2people</finalName>
         <plugins>
+            <!--
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -57,13 +58,13 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
-                            <rules>
+                            <rules>-->
                                 <!-- implementation is needed only for Maven 2 -->
-                                <rule implementation="org.jacoco.maven.RuleConfiguration">
-                                    <element>BUNDLE</element>
-                                    <limits>
+                                <!--<rule implementation="org.jacoco.maven.RuleConfiguration">-->
+                                    <!--<element>BUNDLE</element>
+                                    <limits>-->
                                         <!-- implementation is needed only for Maven 2 -->
-                                        <limit implementation="org.jacoco.report.check.Limit">
+                                        <!--<limit implementation="org.jacoco.report.check.Limit">
                                             <counter>COMPLEXITY</counter>
                                             <value>COVEREDRATIO</value>
                                             <minimum>0.60</minimum>
@@ -74,7 +75,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
   <reporting>
@@ -87,7 +88,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-report-plugin</artifactId>
         </plugin>
-        <plugin>
+        <!--<plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <reportSets>
@@ -134,7 +135,7 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-        </plugin>
+        </plugin> -->
     </plugins>
   </reporting>
   <modules>

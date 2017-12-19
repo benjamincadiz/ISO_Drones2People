@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class PlaySong {
     PreparedStatement preparedStatement;
     Agente agente;
+
     public int PlaySong(String cancion,int artista) throws SQLException{
         int retorno  = 1;// Retorna 0 si reproduce bien la cancion
         Cancion song = selectSong(cancion,artista);
@@ -37,24 +38,10 @@ public class PlaySong {
             song.setNombre(resultSet.getString("Nombre"));
             song.setArtista(resultSet.getInt("Artista"));
             song.setDate(resultSet.getDate("fecha"));
-            song.setAlbum(resultSet.getInt("album"));
+            song.setAlbum(resultSet.getString("album"));
             song.setDuracion(resultSet.getDouble("Duracion"));
         }
 
         return song;
     }
-    public static void main(String[]args) throws SQLException{
-        Scanner sc = new Scanner(System.in);
-        PlaySong playSong = new PlaySong();
-
-            System.out.println("Introduce el nombre de la cancion que quieras reproducir");
-            String nombre = sc.next();
-            System.out.println("Introduce el dni del artista");
-            int artista = sc.nextInt();
-            playSong.PlaySong(nombre, artista);
-
-
-    }
-
-
 }
