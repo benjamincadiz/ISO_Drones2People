@@ -16,33 +16,34 @@ import java.util.Scanner;
 public class PlaySong {
     PreparedStatement preparedStatement;
     Agente agente;
-    public void PlaySong(String cancion,int artista){
+    public int PlaySong(String cancion,int artista) throws SQLException{
+        int retorno  = 1;// Retorna 0 si reproduce bien la cancion
         Cancion song = selectSong(cancion,artista);
         if ( song.getNombre() != null){
             System.out.println("Reproduciendo "+song.getNombre()+" con éxito");
+            retorno = 0;
         }
+        return retorno;
     }
-    public Cancion selectSong (String name, int artist) {
+    public Cancion selectSong (String name, int artist) throws SQLException {
         Cancion song = new Cancion();
         String query = "SELECT * FROM Cancion WHERE nombre = ? and artista = ?";
-        try {
-            preparedStatement = agente.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, artist);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                song.setNombre(resultSet.getString("Nombre"));
-                song.setArtista(resultSet.getInt("Artista"));
-                song.setDate(resultSet.getDate("fecha"));
-                song.setAlbum(resultSet.getInt("album"));
-                song.setDuracion(resultSet.getDouble("Duracion"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+
+        preparedStatement = agente.getConnection().prepareStatement(query);
+        preparedStatement.setString(1, name);
+        preparedStatement.setInt(2, artist);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            song.setNombre(resultSet.getString("Nombre"));
+            song.setArtista(resultSet.getInt("Artista"));
+            song.setDate(resultSet.getDate("fecha"));
+            song.setAlbum(resultSet.getInt("album"));
+            song.setDuracion(resultSet.getDouble("Duracion"));
         }
+
         return song;
     }
-    public static void main(String[]args) {
+    public static void main(String[]args) throws SQLException{
         Scanner sc = new Scanner(System.in);
         PlaySong playSong = new PlaySong();
 
