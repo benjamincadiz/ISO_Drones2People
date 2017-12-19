@@ -5,6 +5,7 @@ import com.drones2people.spotify.crearplaylist.dominio.PlayList;
 import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.dominio.Usuario;
 
+import junit.framework.AssertionFailedError;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,7 +45,7 @@ public class TestAddSongPlaylist {
     }
 
 
-    @Test(expected = SQLException.class)
+    @Test(expected = AssertionFailedError.class)
     public void addSongPlaylistWithUserNull() throws SQLException{
         Exception ex = null;
         cancion = null;
@@ -61,10 +62,10 @@ public class TestAddSongPlaylist {
         assertNull(ex);
     }
 
-    @Test(expected = SQLException.class)
+    @Test(expected = AssertionFailedError.class)
     public void addSongPlaylistWithSongNull() throws SQLException {
         Exception ex = null;
-        cancion = new Cancion("Name", usuario.getDNI(), 1,
+        cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         playList = new PlayList(usuario,java.sql.Date.valueOf("2002-05-10"),"rock");
         usuario = null;
@@ -75,10 +76,10 @@ public class TestAddSongPlaylist {
         }
         assertNull(ex);
     }
-    @Test(expected = SQLException.class)
+    @Test(expected = AssertionFailedError.class)
     public void addSongPlaylistWithPlaylistNull() throws SQLException {
         Exception ex = null;
-        cancion = new Cancion("Name", usuario.getDNI(), 1,
+        cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         playList = null;
 
@@ -93,12 +94,12 @@ public class TestAddSongPlaylist {
         assertNull(ex);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void addSongPlaylistRight() throws SQLException{
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 true, false);
-        Cancion cancion = new Cancion("Name", usuario.getDNI(), 1,
+        Cancion cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         playList = new PlayList(usuario,java.sql.Date.valueOf("2002-05-10"),"rock");
         addSongPlaylist.AddSongPlaylist(cancion.getNombre(),usuario.getDNI(),playList.getNombre());

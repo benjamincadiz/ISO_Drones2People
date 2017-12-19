@@ -17,11 +17,10 @@ public class PlaySong {
     PreparedStatement preparedStatement;
     Agente agente;
 
-    public int PlaySong(String cancion,int artista) throws SQLException{
+    public int PlaySong(Cancion cancion,int artista) throws SQLException{
         int retorno  = 1;// Retorna 0 si reproduce bien la cancion
-        Cancion song = selectSong(cancion,artista);
-        if ( song.getNombre() != null){
-            System.out.println("Reproduciendo "+song.getNombre()+" con éxito");
+        if ( cancion.getNombre() != null){
+            System.out.println("Reproduciendo "+cancion.getNombre()+" con éxito");
             retorno = 0;
         }
         return retorno;
