@@ -34,14 +34,73 @@ public class TestGestorCanciones {
     }
 
     @Test(expected = NullPointerException.class)
-    public void addNullCancion() throws SQLException {
+    public void addNullCancionTest() throws SQLException {
         Cancion cancion = null;
         gestorCanciones.añadirCancion(cancion);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void addSongNullFieldsTest() throws SQLException {
+        Usuario usuario = null;
+        Album album = null;
+        Cancion cancion = new Cancion(null, usuario.getDNI(), album.getNombre(),
+                0, null);
+        gestorCanciones.añadirCancion(cancion);
+    }
+
     @Test
-    public void addSongWithoutPrivileges() throws SQLException {
-        // Preparar datos para el test
+    public void addSongArtistWrongArtistZeroLengthFieldsTest() throws SQLException {
+        Exception ex = null;
+        Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, true);
+        gestorUsuarios.insert(usuario);
+        Album album = new Album(usuario.getDNI(), 10, "", 321.30,
+                java.sql.Date.valueOf("2000-01-01"));
+        gestorAlbums.añadirAlbum(album);
+
+        Cancion cancion = new Cancion("", -231428, album.getNombre(),
+                -3232.03, java.sql.Date.valueOf("2000-01-01"));
+        try {
+            gestorCanciones.añadirCancion(cancion);
+        } catch (Exception e) {
+            ex = e;
+        }
+        assertNull(ex);
+    }
+
+    @Test(expected = MysqlDataTruncation.class)
+    public void addSongAdministratorVeryLongFieldsTest() throws SQLException {
+        String string = "AA23fZCVYQENmvJYCYsrXi3eYboZRCJVoy4HOUU9RdKVrqjpooCt5NC3Bq3cXW5k2T1V5cOVXlGPGcYqxIrfS7TcHO" +
+                "ZysdpQXziWZiNp2P50miS9xRk78kPBidhfTvvvtlrziE7rrt8Q5zEmGkyvRtMilqOQDbA5YSpfv0cl79qqyDkecqerA6xrNg8" +
+                "e9GXwrTwDQjwmVbOa6LwXnDlE4AcgeNQ4zSPSI4LbFCpkislCXfY4A5uT3kLNa50yeyi8";
+        Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                true, false);
+        gestorUsuarios.insert(usuario);
+        Album album = new Album(usuario.getDNI(), 10, string, 321.30,
+                java.sql.Date.valueOf("2000-01-01"));
+        gestorAlbums.añadirAlbum(album);
+
+        Cancion cancion = new Cancion(string, 12345678, album.getNombre(),
+                232.23, java.sql.Date.valueOf("This is not a date"));
+        gestorCanciones.añadirCancion(cancion);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void addSongWithoutPrivilegesNullFieldsTest() throws SQLException {
+        Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        Album album = null;
+
+        Cancion cancion = new Cancion(null, usuario.getDNI(), album.getNombre(),
+                0, null);
+        gestorCanciones.añadirCancion(cancion);
+    }
+
+    @Test
+    public void addSongWithoutPrivilegesAndCorrectFieldsTest() throws SQLException {
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, false);
@@ -56,7 +115,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithAdminPrivileges() throws SQLException {
+    public void addSongWithAdminPrivilegesAndCorrectFieldsTest() throws SQLException {
         // Preparar datos para el test
         Usuario usuario = new Usuario(66432321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -72,7 +131,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithArtistPrivileges() throws SQLException {
+    public void addSongWithArtistPrivilegesAndCorrectFieldsTest() throws SQLException {
         // Preparar datos para el test
         Usuario usuario = new Usuario(62432311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -88,7 +147,7 @@ public class TestGestorCanciones {
     }
 
     @Test(expected = SQLException.class)
-    public void addSongWithoutName() throws SQLException {
+    public void addSongWithoutNameAndCorrectFieldsTest() throws SQLException {
         Usuario usuario = new Usuario(62182311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
@@ -103,7 +162,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithEmptyName() throws SQLException {
+    public void addSongWithEmptyNameAndCorrectFieldsTest() throws SQLException {
         Exception ex = null;
 
         Usuario usuario = new Usuario(62189311, "Foo", "Foo", "foo@foo.com",
@@ -125,7 +184,7 @@ public class TestGestorCanciones {
     }
 
     @Test(expected = MysqlDataTruncation.class)
-    public void addSongWithVeryLongName() throws SQLException {
+    public void addSongWithVeryLongNameAndCorrectFieldsTest() throws SQLException {
         Usuario usuario = new Usuario(67189311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
@@ -143,7 +202,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithRightName() throws SQLException {
+    public void addSongWithRightValuesTest() throws SQLException {
         Usuario usuario = new Usuario(87171311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 true, true);
@@ -158,7 +217,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithNegativeArtist() throws SQLException {
+    public void addSongWithNegativeArtistAndCorrectFieldsTest() throws SQLException {
         Exception ex = null;
 
         Usuario usuario = new Usuario(97181311, "Foo", "Foo", "foo@foo.com",
@@ -180,7 +239,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithLongArtist() throws SQLException {
+    public void addSongWithLongArtistAndCorrectFieldsTest() throws SQLException {
         Usuario usuario = new Usuario(961841311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
@@ -195,10 +254,10 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithNullDate() throws SQLException {
+    public void addSongWithNullDateAndCorrectFieldsTest() throws SQLException {
         Exception ex = null;
 
-        Usuario usuario = new Usuario(96681311, "Foo", "Foo", "foo@foo.com",
+        Usuario usuario = new Usuario(12345678, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
         gestorUsuarios.insert(usuario);
@@ -217,10 +276,10 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithNullAlbum() throws SQLException {
+    public void addSongWithNullAlbumAndCorrectFieldsTest() throws SQLException {
         Exception ex = null;
 
-        Usuario usuario = new Usuario(96981311, "Foo", "Foo", "foo@foo.com",
+        Usuario usuario = new Usuario(12345678, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
         gestorUsuarios.insert(usuario);
@@ -239,7 +298,7 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithZeroAlbum() throws SQLException {
+    public void addSongWithZeroAlbumAndCorrectFieldsTest() throws SQLException {
         Exception ex = null;
 
         Usuario usuario = new Usuario(96980611, "Foo", "Foo", "foo@foo.com",
@@ -261,8 +320,8 @@ public class TestGestorCanciones {
     }
 
     @Test
-    public void addSongWithNegativeDuration() throws SQLException {
-        Usuario usuario = new Usuario(96983811, "Foo", "Foo", "foo@foo.com",
+    public void addSongWithNegativeDurationAndCorrectFieldsTest() throws SQLException {
+        Usuario usuario = new Usuario(12345678, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
         gestorUsuarios.insert(usuario);
