@@ -178,29 +178,7 @@ public class TestGestorUsuarios {
     }
 
     @Test
-    public void selectByDNIGreaterThan8() throws SQLException {
-        Exception ex = null;
-        int DNI = 123456789;
-        try {
-            gestorUsuarios.selectUser_byDNI(DNI);
-        } catch (Exception e) {
-            ex = e;
-        }
-        assertNull(ex);
-    }
-
-    @Test
-    public void selectByDNILessOrEqualTo8() throws SQLException {
-        Usuario usuario = new Usuario(55443322, "Foo", "Foo", "foo@foo.com",
-                "foopass", "666777666",
-                false, false);
-        gestorUsuarios.insert(usuario);
-        Usuario usuario_new = gestorUsuarios.selectUser_byDNI(usuario.getDNI());
-        assertNotNull(usuario_new.getNombre());
-    }
-
-    @Test
-    public void selectByDNINegative() throws SQLException {
+    public void selectByDNINegativeTest() throws SQLException {
         Exception ex = null;
         int DNI = -2132;
         try {
@@ -212,14 +190,11 @@ public class TestGestorUsuarios {
     }
 
     @Test
-    public void selectUserEmailGreaterThan255() throws SQLException {
+    public void selectByDNIZeroTest() throws SQLException {
         Exception ex = null;
-
-        String email = "Loj87P3ZOBrjuF4UfQ8c7GqOhnezH23b6DRsEj4xVD67m99fKqossxxkRSqsltlHWBNznIEGNNXXgigPGuTCGpUejOVX0O" +
-                "sSx5v7AlB1G8VmmIYxvBxDqgIrqThNGAEEOqHfPuEKLW4k6P6FhteqGidvB9R8gIs9pxGnQqRkEhXeHO1BZ3efFYOL4HlLM7blHX" +
-                "1i7Xe2g3fClZ5tJgEPWfADTBvFXeILck00PP72ahu4SnWyavLdIcJ3eRlnqqjW";
+        int DNI = 0;
         try {
-            gestorUsuarios.selectUser(email, "pass");
+            gestorUsuarios.selectUser_byDNI(DNI);
         } catch (Exception e) {
             ex = e;
         }
@@ -227,7 +202,86 @@ public class TestGestorUsuarios {
     }
 
     @Test
-    public void selectUserPasswordGreaterThan255() throws SQLException {
+    public void selectByDNILessOrEqualToEightTest() throws SQLException {
+        Usuario usuario = new Usuario(55443322, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+        Usuario usuario_new = gestorUsuarios.selectUser_byDNI(usuario.getDNI());
+        assertNotNull(usuario_new.getNombre());
+    }
+
+    @Test
+    public void selectByDNIGreaterThanEightTest() throws SQLException {
+        Exception ex = null;
+        int DNI = 123456789;
+        try {
+            gestorUsuarios.selectUser_byDNI(DNI);
+        } catch (Exception e) {
+            ex = e;
+        }
+        assertNull(ex);
+    }
+
+    @Test
+    public void selectUserNullEmailAndPasswordTest() throws SQLException {
+        Exception ex = null;
+        try {
+            gestorUsuarios.selectUser(null, null);
+        } catch (Exception e) {
+            ex = e;
+        }
+        assertNull(ex);
+    }
+
+    @Test
+    public void selectNonExistingUserRightFieldsTest() throws SQLException {
+        Usuario usuario = gestorUsuarios.selectUser("noexist@noexist.com", "noexist");
+        assertNull(usuario.getNombre());
+    }
+
+    @Test
+    public void selectExistingUserRightFieldsTest() throws SQLException {
+        Usuario usuario = new Usuario(55443321, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, false);
+        gestorUsuarios.insert(usuario);
+        Usuario recovered = gestorUsuarios.selectUser(usuario.getEmail(), usuario.getPassword());
+        assertNotNull(recovered.getNombre());
+    }
+
+    @Test
+    public void selectUserEmailAndPasswordVeryLongTest() throws SQLException {
+        Exception ex = null;
+
+        String string = "Loj87P3ZOBrjuF4UfQ8c7GqOhnezH23b6DRsEj4xVD67m99fKqossxxkRSqsltlHWBNznIEGNNXXgigPGuTCGpUejOVX0O" +
+                "sSx5v7AlB1G8VmmIYxvBxDqgIrqThNGAEEOqHfPuEKLW4k6P6FhteqGidvB9R8gIs9pxGnQqRkEhXeHO1BZ3efFYOL4HlLM7blHX" +
+                "1i7Xe2g3fClZ5tJgEPWfADTBvFXeILck00PP72ahu4SnWyavLdIcJ3eRlnqqjW";
+        try {
+            gestorUsuarios.selectUser(string, string);
+        } catch (Exception e) {
+            ex = e;
+        }
+        assertNull(ex);
+    }
+
+    @Test
+    public void selectUserEmailVeryLongTest() throws SQLException {
+        Exception ex = null;
+
+        String mail = "Loj87P3ZOBrjuF4UfQ8c7GqOhnezH23b6DRsEj4xVD67m99fKqossxxkRSqsltlHWBNznIEGNNXXgigPGuTCGpUejOVX0O" +
+                "sSx5v7AlB1G8VmmIYxvBxDqgIrqThNGAEEOqHfPuEKLW4k6P6FhteqGidvB9R8gIs9pxGnQqRkEhXeHO1BZ3efFYOL4HlLM7blHX" +
+                "1i7Xe2g3fClZ5tJgEPWfADTBvFXeILck00PP72ahu4SnWyavLdIcJ3eRlnqqjW";
+        try {
+            gestorUsuarios.selectUser(mail, "password");
+        } catch (Exception e) {
+            ex = e;
+        }
+        assertNull(ex);
+    }
+
+    @Test
+    public void selectUserPasswordVeryLongTest() throws SQLException {
         Exception ex = null;
 
         String pass = "Loj87P3ZOBrjuF4UfQ8c7GqOhnezH23b6DRsEj4xVD67m99fKqossxxkRSqsltlHWBNznIEGNNXXgigPGuTCGpUejOVX0O" +
@@ -239,22 +293,6 @@ public class TestGestorUsuarios {
             ex = e;
         }
         assertNull(ex);
-    }
-
-    @Test
-    public void selectNonExistingUser() throws SQLException {
-        Usuario usuario = gestorUsuarios.selectUser("noexist@noexist.com", "noexist");
-        assertNull(usuario.getNombre());
-    }
-
-    @Test
-    public void selectExistingUser() throws SQLException {
-        Usuario usuario = new Usuario(55443321, "Foo", "Foo", "foo@foo.com",
-                "foopass", "666777666",
-                false, false);
-        gestorUsuarios.insert(usuario);
-        Usuario recovered = gestorUsuarios.selectUser(usuario.getEmail(), usuario.getPassword());
-        assertNotNull(recovered.getNombre());
     }
     
 }
