@@ -1,22 +1,19 @@
 package com.drones2people.spotify.DescargarAlbum;
 
-import com.drones2people.spotify.dominio.Album;
 import com.drones2people.spotify.persistencia.GestorAlbums;
 
 import java.net.Socket;
 
 /**
  * Hello world!
- *
  */
-public class DescargarAlbum
-{
+public class DescargarAlbum {
     GestorAlbums gestorAlbums;
+
     public boolean descargarAlbum(int ID) {
-        Album album=gestorAlbums.selectAlbum_byID(ID);
         boolean downloaded = true;
         String host = "www.google.es";
-        int puerto  = 80;
+        int puerto = 80;
         try {
             Socket socket = new Socket(host, puerto);
             if (!socket.isConnected()) {

@@ -1,10 +1,10 @@
 CREATE TABLE Usuario (
   DNI       int(8) NOT NULL AUTO_INCREMENT, 
-  Nombre    varchar(40), 
-  Apellidos varchar(50), 
-  email     varchar(255) UNIQUE, 
-  password  varchar(255), 
-  Telefono  varchar(12), 
+  Nombre    varchar(40) NOT NULL,
+  Apellidos varchar(50) NOT NULL,
+  email     varchar(255) NOT NULL,
+  password  varchar(255) NOT NULL,
+  Telefono  varchar(12) NOT NULL,
   isAdmin   tinyint DEFAULT 0, 
   isArtist  tinyint DEFAULT 0, 
   PRIMARY KEY (DNI));

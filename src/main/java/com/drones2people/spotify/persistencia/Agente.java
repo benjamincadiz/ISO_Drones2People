@@ -47,10 +47,12 @@ public class Agente {
     }
 
     public ResultSet read(String sql_query) throws SQLException {
+        preparedStatement = mBD.prepareStatement(sql_query);
         return preparedStatement.executeQuery(sql_query);
     }
 
     public int modify(String sql_query) throws SQLException {
+        preparedStatement = mBD.prepareStatement(sql_query);
         return preparedStatement.executeUpdate(sql_query);
     }
 

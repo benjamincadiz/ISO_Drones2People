@@ -16,7 +16,12 @@ public class DelAlbum
     Agente agente;
 public void eliminarAlbum(Album album) {
         int artista = album.getArtista();
-        Usuario usuario = gestorUsuarios.selectUser_byDNI(artista);
+        Usuario usuario = null;
+        try {
+            usuario = gestorUsuarios.selectUser_byDNI(artista);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         // Si existe el usuario en la base de datos y además tiene permisos para borrar albums
         if (usuario != null && (usuario.isIs_admin() == true || usuario.isIs_artist() == true)) {
             String query = "DELETE FROM ALBUM WHERE ID="+album.getID()+";";

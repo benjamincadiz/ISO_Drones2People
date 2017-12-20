@@ -13,8 +13,7 @@ public class Album {
 
     public Album () {}
 
-    public Album(int ID, int artista, int numeroCanciones, String nombre, double duracion, Date fechaLanzamiento) {
-        this.ID = ID;
+    public Album(int artista, int numeroCanciones, String nombre, double duracion, Date fechaLanzamiento) {
         Artista = artista;
         this.numeroCanciones = numeroCanciones;
         this.nombre = nombre;

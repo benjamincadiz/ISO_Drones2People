@@ -18,9 +18,15 @@ public class DelCancion
     Agente agente;
     public int eliminarCancion(Cancion cancion){
         //exit_code=0 -> cancion eliminada correctamente
-        int exit_code=0;
-        Usuario usuario = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
-        Album album = gestorAlbums.selectAlbum_byID(cancion.getAlbum());
+        int exit_code = 0;
+        Usuario usuario = null;
+        Album album = null;
+        try {
+            usuario = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
+            album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         if(usuario.getNombre() != null && album.getNombre() != null){
             if(usuario.isIs_admin()==true || usuario.isIs_artist()==true){
                 String query="DELETE FROM Cancion WHERE NOMBRE="+cancion.getNombre()+" && ARTISTA="+usuario.getDNI();

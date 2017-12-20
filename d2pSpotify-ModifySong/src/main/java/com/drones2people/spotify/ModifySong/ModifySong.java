@@ -20,47 +20,38 @@ import java.util.Scanner;
 public class ModifySong {
     GestorUsuarios gestorUsuarios = new GestorUsuarios();
     GestorAlbums gestorAlbums = new GestorAlbums();
-    GestorCanciones gestorCanciones = new GestorCanciones();
     Agente agente ;
     PreparedStatement preparedStatement;
-    public int ModifySong(Cancion cancion, int option) {
+
+    public int ModifySong(Cancion cancion, int option) throws SQLException {
+        try {
+            agente = Agente.getAgente();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         int exit_code = 0;
         Usuario user = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
-        Album album = gestorAlbums.selectAlbum_byID(cancion.getAlbum());
+        Album album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());
+
         // Si existe el usuario en la base de datos y además tiene permisos para añadir canciones...
         if (user.getNombre() != null && (user.isIs_admin() == true || user.isIs_artist() == true) && album.getNombre() != null) {
-            String query = "INSERT INTO Cancion VALUES (?,?,?,?,?);";
-            try {
-                preparedStatement = agente.getConnection().prepareStatement(query);
-                switch (option){
-                    case 1:
-                        preparedStatement.setString(1, cancion.getNombre());
-                        break;
-                    case 2:
-                        preparedStatement.setInt(2, cancion.getArtista());
-                        break;
-                    case 3:
-                        preparedStatement.setDate(3, cancion.getDate());
-                        break;
-                    case 4:
-                        preparedStatement.setInt(4, cancion.getAlbum());
-                        break;
-                    case 5:
-                        preparedStatement.setDouble(5, cancion.getDuracion());
-                        break;
-                }
-                preparedStatement.execute();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+            String query = "UPDATE Cancion SET Nombre = ?,Artista = ?,Album = ?,Duracion = ?,Año = ?;";
+
+            preparedStatement = agente.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, cancion.getNombre());
+            preparedStatement.setInt(2, cancion.getArtista());
+            preparedStatement.setDate(3, cancion.getDate());
+            preparedStatement.setInt(4, album.getID());
+            preparedStatement.setDouble(5, cancion.getDuracion());
+            preparedStatement.execute();
+
         } else {
             exit_code = 1; // exit_code = 1 -> canción no añadida correctamente
         }
         return exit_code;
     }
-    public static void main( String[] args ) throws ParseException {
+    public static void main( String[] args ) throws ParseException,SQLException {
         ModifySong modifySong = new ModifySong();
-
         Scanner sc = new Scanner(System.in);
         Album album = new Album();
         Cancion cancion = new Cancion();
@@ -86,7 +77,7 @@ public class ModifySong {
                 break;
             case 4:
                 System.out.println("Escriba el nuevo album que quiere cambiar:\n");
-                int albu = sc.nextInt();
+                String albu = sc.next();
                 cancion.setAlbum(albu);
                 break;
             case 5:
@@ -95,6 +86,7 @@ public class ModifySong {
                 cancion.setDuracion(duracion);
                 break;
         }
-        modifySong.ModifySong(cancion,elegido);
+            modifySong.ModifySong(cancion,elegido);
+
     }
 }

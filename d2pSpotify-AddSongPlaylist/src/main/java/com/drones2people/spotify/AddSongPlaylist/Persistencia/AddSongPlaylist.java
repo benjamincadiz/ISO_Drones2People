@@ -17,18 +17,15 @@ public class AddSongPlaylist {
     PreparedStatement preparedStatement;
     Agente agente;
 
-    public void AddSongPlaylist(String name, int dni,String playlist){
+    public void AddSongPlaylist(String name, int dni,String playlist) throws SQLException{
         cancion = playSong.selectSong(name,dni);
         String query = "INSERT INTO Cancion-Playlist VALUES (?,?,?);";
-        try {
-            preparedStatement = agente.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, playlist);
-            preparedStatement.setString(2, cancion.getNombre());
-            preparedStatement.setInt(3, cancion.getArtista());
-            preparedStatement.execute();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+
+        preparedStatement = agente.getConnection().prepareStatement(query);
+        preparedStatement.setString(1, playlist);
+        preparedStatement.setString(2, cancion.getNombre());
+        preparedStatement.setInt(3, cancion.getArtista());
+        preparedStatement.execute();
     }
 
 

@@ -21,7 +21,7 @@ public class BuscarCancion
                 cancion.setNombre(rs.getString("Nombre"));
                 cancion.setArtista(rs.getInt("Artista"));
                 cancion.setDate(rs.getDate("fecha"));
-                cancion.setAlbum(rs.getInt("album"));
+                cancion.setAlbum(rs.getString("album"));
                 cancion.setDuracion(rs.getDouble("Duracion"));
             }
         } catch (SQLException ex) {
