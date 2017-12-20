@@ -10,7 +10,7 @@ import com.drones2people.spotify.persistencia.GestorUsuarios;
 import java.sql.SQLException;
 
 import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
-import com.sun.image.codec.jpeg.TruncatedFileException;
+
 import org.junit.Before;
 import org.junit.Test;
 
