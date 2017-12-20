@@ -30,7 +30,7 @@ public class TestBuySong {
         buySong = new BuySong();
         gestorAlbums = new GestorAlbums();
     }
-    @Test
+    @Test(expected = NullPointerException.class)
     public void buySongNull() throws SQLException {
         Cancion cancion = null;
         buySong.buySong(cancion);
