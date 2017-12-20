@@ -1,10 +1,9 @@
 package com.drones2people.spotify.BuySong;
-import com.drones2people.spotify.dominio.Usuario;
+
+import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.pagospaypal.PagosPaypal;
 import com.drones2people.spotify.persistencia.Agente;
-import com.drones2people.spotify.persistencia.GestorAlbums;
 import com.drones2people.spotify.persistencia.GestorCanciones;
-import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.persistencia.GestorUsuarios;
 
 import java.sql.PreparedStatement;
@@ -13,7 +12,6 @@ import java.sql.SQLException;
 
 /**
  * Hello world!
- *
  */
 public class BuySong {
     PreparedStatement preparedStatement;
@@ -22,7 +20,7 @@ public class BuySong {
     GestorUsuarios gestorUsuarios;
 
 
-    public boolean buySong(Cancion cancion) throws SQLException{
+    public boolean buySong(Cancion cancion) throws SQLException {
         try {
             agente = Agente.getAgente();
         } catch (Exception ex) {
@@ -39,7 +37,6 @@ public class BuySong {
             cancion.setNombre(resultSet.getString("Nombre"));
             cancion.setArtista(resultSet.getInt("Artista"));
             cancion.setDate(resultSet.getDate("fecha"));
-            cancion.setAlbum(resultSet.getString("album"));
             cancion.setDuracion(resultSet.getDouble("Duracion"));
         }
         PagosPaypal pp = new PagosPaypal();
