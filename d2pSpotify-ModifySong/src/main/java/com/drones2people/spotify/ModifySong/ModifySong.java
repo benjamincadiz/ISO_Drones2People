@@ -24,31 +24,25 @@ public class ModifySong {
     PreparedStatement preparedStatement;
 
     public int ModifySong(Cancion cancion, int option) throws SQLException {
+        try {
+            agente = Agente.getAgente();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         int exit_code = 0;
         Usuario user = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
         Album album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());
+
         // Si existe el usuario en la base de datos y además tiene permisos para añadir canciones...
         if (user.getNombre() != null && (user.isIs_admin() == true || user.isIs_artist() == true) && album.getNombre() != null) {
-            String query = "UPDATE Cancion SET()";
+            String query = "UPDATE Cancion SET Nombre = ?,Artista = ?,Album = ?,Duracion = ?,Año = ?;";
 
             preparedStatement = agente.getConnection().prepareStatement(query);
-            switch (option){
-                case 1:
-                    preparedStatement.setString(1, cancion.getNombre());
-                    break;
-                case 2:
-                    preparedStatement.setInt(2, cancion.getArtista());
-                    break;
-                case 3:
-                    preparedStatement.setDate(3, cancion.getDate());
-                    break;
-                case 4:
-                    preparedStatement.setString(4, cancion.getAlbum());
-                    break;
-                case 5:
-                    preparedStatement.setDouble(5, cancion.getDuracion());
-                    break;
-            }
+            preparedStatement.setString(1, cancion.getNombre());
+            preparedStatement.setInt(2, cancion.getArtista());
+            preparedStatement.setDate(3, cancion.getDate());
+            preparedStatement.setInt(4, album.getID());
+            preparedStatement.setDouble(5, cancion.getDuracion());
             preparedStatement.execute();
 
         } else {

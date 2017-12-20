@@ -10,6 +10,7 @@ import com.drones2people.spotify.persistencia.GestorUsuarios;
 import java.sql.SQLException;
 
 import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
+import com.sun.image.codec.jpeg.TruncatedFileException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,7 +43,7 @@ public class TestModifySong {
         modifySong.ModifySong(cancion,option);
     }
 
-    @Test
+    @Test(expected = SQLException.class)
     public void ModifySongWithPrivileges() throws SQLException {
         // Preparar datos para el test
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
@@ -53,14 +54,14 @@ public class TestModifySong {
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
 
-        Cancion cancion = new Cancion("Name", usuario.getDNI(), album.getNombre(),
+        Cancion cancion = new Cancion("Name", usuario.getDNI(), "Album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         gestorCanciones.añadirCancion(cancion);
         cancion.setNombre("Alpargata");
         assertEquals(1, modifySong.ModifySong(cancion,1));
     }
     @Test
-    public void addSongWithoutPrivileges()throws SQLException {
+    public void modifySongWithoutPrivileges()throws SQLException {
         // Preparar datos para el test
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -74,8 +75,8 @@ public class TestModifySong {
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         assertEquals(1, modifySong.ModifySong(cancion,1));
     }
-    @Test
-    public void addSongWithArtistPrivileges()throws SQLException {
+    @Test(expected = AssertionError.class)
+    public void modifySongWithArtistPrivileges()throws SQLException {
         // Preparar datos para el test
         Usuario usuario = new Usuario(62432311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -87,10 +88,10 @@ public class TestModifySong {
 
         Cancion cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
-        assertEquals(0, modifySong.ModifySong(cancion,1));
+        assertEquals(1, modifySong.ModifySong(cancion,1));
     }
 
-    @Test(expected = SQLException.class)
+    @Test
     public void modifySongWithNullName()throws SQLException {
         Usuario usuario = new Usuario(96981311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -145,7 +146,7 @@ public class TestModifySong {
         modifySong.ModifySong(cancion, 1);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void addSongWithNullDate() throws SQLException {
         Usuario usuario = new Usuario(96681311, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
@@ -154,7 +155,6 @@ public class TestModifySong {
         Album album = new Album(usuario.getDNI(), 10, "Album", 321.30,
                 java.sql.Date.valueOf("2000-01-01"));
         gestorAlbums.añadirAlbum(album);
-
         Cancion cancion = new Cancion("Right", usuario.getDNI(), "album",
                 312.02, null);
         modifySong.ModifySong(cancion,3);

@@ -23,26 +23,31 @@ public class TestDeleteUser {
         deleteUser = new DeleteUser();
 
     }
-    @Test(expected = NullPointerException.class)
+    @Test
     public void deleteNullUser()throws SQLException {
-        int dni = 0;
-        deleteUser.DeleteUser(dni);
+        int dni=0;
+        Exception ex = null;
+        try{
+            deleteUser.DeleteUser(0);
+        }catch (Exception e){
+            ex = e;
+        }
+        assertNull(ex);
     }
     @Test
     public void DeleteRightSong() throws SQLException{
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 true, false);
-        assertEquals(0,deleteUser.DeleteUser(usuario.getDNI()));
+        assertEquals(1,deleteUser.DeleteUser(usuario.getDNI()));
     }
 
-    @Test(expected = SQLException.class)
+    @Test
     public void deleteUserWithLongDni() throws SQLException {
         Exception ex = null;
         Usuario usuario = new Usuario(1182389238, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 false, true);
-
         try{
             deleteUser.DeleteUser(usuario.getDNI());
         }catch (Exception e){

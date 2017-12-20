@@ -41,7 +41,7 @@ public class TestBuySong {
         Usuario usuario = new Usuario(66443321, "Foo", "Foo", "foo@foo.com",
                 "foopass", "666777666",
                 true, false);
-        Cancion cancion = new Cancion("Name", usuario.getDNI(), 1,
+        Cancion cancion = new Cancion("Name", usuario.getDNI(), "album",
                 312.02, java.sql.Date.valueOf("2000-01-01"));
         assertTrue(buySong.buySong(cancion));
     }

@@ -351,4 +351,18 @@ public class TestGestorCanciones {
         ArrayList<Cancion> canciones = gestorCanciones.getListaCanciones();
         assertTrue(canciones.size() > 0);
     }
+    @Test
+    public void getListaCancionesEqualsZero() throws SQLException {
+        Usuario usuario = new Usuario(96983181, "Foo", "Foo", "foo@foo.com",
+                "foopass", "666777666",
+                false, true);
+        gestorUsuarios.insert(usuario);
+        Album album = new Album(usuario.getDNI(), 10, "Album", 321.30,
+                java.sql.Date.valueOf("2000-01-01"));
+        gestorAlbums.añadirAlbum(album);
+
+        ArrayList<Cancion> canciones = gestorCanciones.getListaCanciones();
+        assertTrue(canciones.size() == 0);
+    }
+
 }
