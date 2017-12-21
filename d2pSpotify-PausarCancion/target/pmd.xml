@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:04:59.494">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-PausarCancion\src\main\java\com\drones2people\spotify\PausarCancion\PausarCancion.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="47" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="4" endline="4" begincolumn="1" endcolumn="62" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.persistencia.GestorCanciones'
+</violation>
+<violation beginline="12" endline="25" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="14" endline="14" begincolumn="15" endcolumn="56" rule="MethodWithSameNameAsEnclosingClass" ruleset="Naming" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodWithSameNameAsEnclosingClass" priority="3">
+Classes should not have non-constructor methods with the same name as the class
+</violation>
+<violation beginline="14" endline="14" begincolumn="15" endcolumn="56" rule="MethodNamingConventions" ruleset="Naming" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="14" endline="14" begincolumn="45" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" variable="artista" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'artista' is not assigned and could be declared final
+</violation>
+<violation beginline="14" endline="14" begincolumn="29" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" variable="cancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'cancion' is not assigned and could be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="7" endcolumn="30" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" variable="playSong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'playSong' could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="11" endcolumn="66" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" variable="cancion1" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'cancion1' could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="30" endcolumn="66" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="18" endline="18" begincolumn="15" endcolumn="34" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="19" endline="19" begincolumn="56" endcolumn="75" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.PausarCancion" class="PausarCancion" method="PausarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModifySong.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">d2pSpotify-ModifySong</a> &gt; <a href="index.source.html" class="el_package">com.drones2people.spotify.ModifySong</a> &gt; <span class="el_source">ModifySong.java</span></div><h1>ModifySong.java</h1><pre class="source lang-java linenums">package com.drones2people.spotify.ModifySong;
+import com.drones2people.spotify.persistencia.Agente;
+import com.drones2people.spotify.persistencia.GestorAlbums;
+import com.drones2people.spotify.persistencia.GestorCanciones;
+import com.drones2people.spotify.persistencia.GestorUsuarios;
+import com.drones2people.spotify.presentacion.gui;
+import com.drones2people.spotify.dominio.*;
+
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+<span class="nc" id="L20">public class ModifySong {</span>
+<span class="nc" id="L21">    GestorUsuarios gestorUsuarios = new GestorUsuarios();</span>
+<span class="nc" id="L22">    GestorAlbums gestorAlbums = new GestorAlbums();</span>
+    Agente agente ;
+    PreparedStatement preparedStatement;
+
+    public int ModifySong(Cancion cancion, int option) throws SQLException {
+        try {
+<span class="nc" id="L28">            agente = Agente.getAgente();</span>
+<span class="nc" id="L29">        } catch (Exception ex) {</span>
+<span class="nc" id="L30">            ex.printStackTrace();</span>
+<span class="nc" id="L31">        }</span>
+<span class="nc" id="L32">        int exit_code = 0;</span>
+<span class="nc" id="L33">        Usuario user = gestorUsuarios.selectUser_byDNI(cancion.getArtista());</span>
+<span class="nc" id="L34">        Album album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());</span>
+
+        // Si existe el usuario en la base de datos y además tiene permisos para añadir canciones...
+<span class="nc bnc" id="L37" title="All 8 branches missed.">        if (user.getNombre() != null &amp;&amp; (user.isIs_admin() == true || user.isIs_artist() == true) &amp;&amp; album.getNombre() != null) {</span>
+<span class="nc" id="L38">            String query = &quot;UPDATE Cancion SET Nombre = ?,Artista = ?,Album = ?,Duracion = ?,Año = ?;&quot;;</span>
+
+<span class="nc" id="L40">            preparedStatement = agente.getConnection().prepareStatement(query);</span>
+<span class="nc" id="L41">            preparedStatement.setString(1, cancion.getNombre());</span>
+<span class="nc" id="L42">            preparedStatement.setInt(2, cancion.getArtista());</span>
+<span class="nc" id="L43">            preparedStatement.setDate(3, cancion.getDate());</span>
+<span class="nc" id="L44">            preparedStatement.setInt(4, album.getID());</span>
+<span class="nc" id="L45">            preparedStatement.setDouble(5, cancion.getDuracion());</span>
+<span class="nc" id="L46">            preparedStatement.execute();</span>
+
+<span class="nc" id="L48">        } else {</span>
+<span class="nc" id="L49">            exit_code = 1; // exit_code = 1 -&gt; canción no añadida correctamente</span>
+        }
+<span class="nc" id="L51">        return exit_code;</span>
+    }
+    public static void main( String[] args ) throws ParseException,SQLException {
+<span class="nc" id="L54">        ModifySong modifySong = new ModifySong();</span>
+<span class="nc" id="L55">        Scanner sc = new Scanner(System.in);</span>
+<span class="nc" id="L56">        Album album = new Album();</span>
+<span class="nc" id="L57">        Cancion cancion = new Cancion();</span>
+<span class="nc" id="L58">        System.out.println(&quot;¿Que parametro de la cancion quieres cambiar? \n 1.Nombre.\n 2.Artista\n 3.Fecha.\n 4.Album. \n 5.Duracion.\n&quot;);</span>
+<span class="nc" id="L59">        int elegido = sc.nextInt();</span>
+<span class="nc bnc" id="L60" title="All 6 branches missed.">        switch (elegido) {</span>
+            case 1:
+<span class="nc" id="L62">                System.out.println(&quot;Escriba el nuevo nombre que quiere cambiar:\n&quot;);</span>
+<span class="nc" id="L63">                String nombre = sc.next();</span>
+<span class="nc" id="L64">                cancion.setNombre(nombre);</span>
+<span class="nc" id="L65">                break;</span>
+            case 2:
+<span class="nc" id="L67">                System.out.println(&quot;Escriba el nuevo artista que quiere cambiar:\n&quot;);</span>
+<span class="nc" id="L68">                int artista = sc.nextInt();</span>
+<span class="nc" id="L69">                cancion.setArtista(artista);</span>
+<span class="nc" id="L70">                break;</span>
+            case 3:
+<span class="nc" id="L72">                System.out.println(&quot;Escriba la nueva fecha que quiere cambiar:\n&quot;);</span>
+<span class="nc" id="L73">                String fecha = sc.next();</span>
+<span class="nc" id="L74">                SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L75">                Date date = (Date) sdf.parse(fecha);</span>
+<span class="nc" id="L76">                cancion.setDate(date);</span>
+<span class="nc" id="L77">                break;</span>
+            case 4:
+<span class="nc" id="L79">                System.out.println(&quot;Escriba el nuevo album que quiere cambiar:\n&quot;);</span>
+<span class="nc" id="L80">                String albu = sc.next();</span>
+<span class="nc" id="L81">                cancion.setAlbum(albu);</span>
+<span class="nc" id="L82">                break;</span>
+            case 5:
+<span class="nc" id="L84">                System.out.println(&quot;Escriba la nueva duracion que quiere cambiar:\n&quot;);</span>
+<span class="nc" id="L85">                Double duracion = sc.nextDouble();</span>
+<span class="nc" id="L86">                cancion.setDuracion(duracion);</span>
+                break;
+        }
+<span class="nc" id="L89">            modifySong.ModifySong(cancion,elegido);</span>
+
+<span class="nc" id="L91">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

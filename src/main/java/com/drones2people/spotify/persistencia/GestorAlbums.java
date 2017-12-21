@@ -2,7 +2,6 @@ package com.drones2people.spotify.persistencia;
 
 
 import com.drones2people.spotify.dominio.Album;
-import com.drones2people.spotify.dominio.Cancion;
 import com.drones2people.spotify.dominio.Usuario;
 
 import java.sql.PreparedStatement;
@@ -18,7 +17,7 @@ public class GestorAlbums {
     private Agente agente;
     private GestorUsuarios gestorUsuarios;
     private PreparedStatement preparedStatement;
-
+    private static final int NUMBER3 = 0, NUMBER4 = 0, NUMBER5 = 0;
     public GestorAlbums() {
         albums = new ArrayList<Album>();
         preparedStatement = null;
@@ -29,25 +28,33 @@ public class GestorAlbums {
             ex.printStackTrace();
         }
     }
-
-    public void añadirAlbum(Album album) throws SQLException {
+    /**
+     * Metodo usado para añadir un album a la base de datos.
+     * @param album el album a añadir
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
+    public void añadirAlbum(final Album album) throws SQLException {
         int artista = album.getArtista();
         Usuario usuario = gestorUsuarios.selectUser_byDNI(artista);
         // Si existe el usuario en la base de datos y además tiene permisos para añadir albums...
-        if (usuario != null && (usuario.isIs_admin() == true || usuario.isIs_artist() == true)) {
+        if (usuario != null && (usuario.isIs_admin() || usuario.isIs_artist())) {
             String query = "INSERT INTO Album (Artista, Nombre, NumeroCanciones, Duracion, FechaLanzamiento) VALUES (?,?,?,?,?);";
-
             preparedStatement = agente.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, album.getArtista());
             preparedStatement.setString(2, album.getNombre());
-            preparedStatement.setInt(3, album.getNumeroCanciones());
-            preparedStatement.setDouble(4, album.getDuracion());
-            preparedStatement.setDate(5, album.getFechaLanzamiento());
+            preparedStatement.setInt(NUMBER3, album.getNumeroCanciones());
+            preparedStatement.setDouble(NUMBER4, album.getDuracion());
+            preparedStatement.setDate(NUMBER5, album.getFechaLanzamiento());
             preparedStatement.execute();
         }
     }
-
-    public Album selectAlbum_byID (int ID) throws SQLException {
+    /**
+     * Metodo usado para seleccionar un Album a partir de su ID.
+     * @param ID identificador del album
+     * @return Album album seleccionado
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
+    public Album selectAlbum_byID (final int ID) throws SQLException {
         Album album = new Album();
         String query = "SELECT * FROM Album WHERE ID = ?";
         preparedStatement = agente.getConnection().prepareStatement(query);
@@ -64,7 +71,12 @@ public class GestorAlbums {
 
         return album;
     }
-
+    /**
+     * Metodo usado para seleccionar un Album a partir de su nombre.
+     * @param name nombre del album a seleccionar
+     * @return Album el album seleccionado
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
     public Album selectAlbum_byName (String name) throws SQLException {
         Album album = new Album();
         String query = "SELECT * FROM Album WHERE Nombre = ?";

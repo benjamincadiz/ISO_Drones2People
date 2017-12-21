@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:05:09.047">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-DescargarAlbum\src\main\java\com\drones2people\spotify\DescargarAlbum\DescargarAlbum.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="48" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="10" endline="29" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="11" endline="11" begincolumn="5" endcolumn="30" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="13" endline="13" begincolumn="39" endcolumn="40" rule="ShortVariable" ruleset="Naming" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="ID" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like ID
+</violation>
+<violation beginline="13" endline="13" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="ID" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'ID' is not assigned and could be declared final
+</violation>
+<violation beginline="13" endline="13" begincolumn="39" endcolumn="40" rule="VariableNamingConventions" ruleset="Naming" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="ID" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+Variables should start with a lowercase character, 'ID' starts with uppercase character.
+</violation>
+<violation beginline="14" endline="20" begincolumn="17" endcolumn="34" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="downloaded" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'downloaded' (lines '14'-'20').
+</violation>
+<violation beginline="14" endline="25" begincolumn="13" endcolumn="30" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="downloaded" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'downloaded' (lines '14'-'25').
+</violation>
+<violation beginline="15" endline="15" begincolumn="9" endcolumn="37" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="host" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'host' could be declared final
+</violation>
+<violation beginline="16" endline="16" begincolumn="9" endcolumn="23" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="puerto" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'puerto' could be declared final
+</violation>
+<violation beginline="18" endline="18" begincolumn="13" endcolumn="52" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="socket" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'socket' could be declared final
+</violation>
+<violation beginline="20" endline="25" begincolumn="13" endcolumn="30" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.DescargarAlbum" class="DescargarAlbum" method="descargarAlbum" variable="downloaded" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'downloaded' (lines '20'-'25').
+</violation>
+</file>
+</pmd>

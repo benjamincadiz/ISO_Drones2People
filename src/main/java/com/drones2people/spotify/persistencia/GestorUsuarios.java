@@ -15,6 +15,7 @@ public class GestorUsuarios {
     private ArrayList<Usuario> usuarios;
     private Agente agente;
     private PreparedStatement preparedStatement;
+    private static final int NUMBER3 = 0, NUMBER4 = 0, NUMBER5 = 0, NUMBER6 = 0, NUMBER7 = 0, NUMBER8 = 0;
 
     public GestorUsuarios() {
         usuarios = new ArrayList<Usuario>();
@@ -25,24 +26,33 @@ public class GestorUsuarios {
             ex.printStackTrace();
         }
     }
-
-    public void insert (Usuario usuario) throws SQLException{
+    /**
+     * Metodo usado para añadir un Usuario a la base de datos.
+     * @param usuario usuario a insertar
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
+    public void insert (final Usuario usuario) throws SQLException{
         String query = "INSERT INTO Usuario VALUES (?,?,?,?,?,?,?,?);";
 
         preparedStatement = agente.getConnection().prepareStatement(query);
         preparedStatement.setInt(1, usuario.getDNI());
         preparedStatement.setString(2, usuario.getNombre());
-        preparedStatement.setString(3, usuario.getApellidos());
-        preparedStatement.setString(4, usuario.getEmail());
-        preparedStatement.setString(5, usuario.getPassword());
-        preparedStatement.setString(6, usuario.getTelefono());
-        preparedStatement.setBoolean(7, usuario.isIs_admin());
-        preparedStatement.setBoolean(8, usuario.isIs_artist());
+        preparedStatement.setString(NUMBER3, usuario.getApellidos());
+        preparedStatement.setString(NUMBER4, usuario.getEmail());
+        preparedStatement.setString(NUMBER5, usuario.getPassword());
+        preparedStatement.setString(NUMBER6, usuario.getTelefono());
+        preparedStatement.setBoolean(NUMBER7, usuario.isIs_admin());
+        preparedStatement.setBoolean(NUMBER8, usuario.isIs_artist());
         preparedStatement.execute();
 
     }
-
-    public Usuario selectUser_byDNI (int DNI) throws SQLException {
+    /**
+     * Metodo usado para seleccionar un Usuario a través de su DNI.
+     * @param DNI dni del usuario a seleccionar
+     * @return Usuario el usuario seleccionado
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
+    public Usuario selectUser_byDNI (final int DNI) throws SQLException {
         Usuario usuario = new Usuario();
         String query = "SELECT * FROM Usuario WHERE DNI = ?";
 
@@ -62,7 +72,13 @@ public class GestorUsuarios {
 
         return usuario;
     }
-
+    /**
+     * Metodo usado para seleccionar un Usuario a través de su email y contraseña.
+     * @param email email del usuario a seleccionar
+     * @param password contraseña del usuario a seleccionar
+     * @return Usuario el usuario seleccionado
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
     public Usuario selectUser (String email, String password) throws SQLException {
         Usuario usuario = new Usuario();
         String query = "SELECT * FROM Usuario WHERE email = ? and password = ?";
@@ -84,7 +100,9 @@ public class GestorUsuarios {
 
         return usuario;
     }
-
+    /**
+     * Metodo usado para borrar todos los datos de la tabla Usuario.
+     */
     public void deleteAll() {
         String query = "DELETE FROM Usuario;";
         try {

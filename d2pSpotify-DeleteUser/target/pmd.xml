@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:03:27.452">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-DeleteUser\src\main\java\com\drones2people\spotify\DeleteUser\DeleteUser.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="44" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="2" endline="2" begincolumn="1" endcolumn="47" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.dominio.Album'
+</violation>
+<violation beginline="3" endline="3" begincolumn="1" endcolumn="49" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.dominio.Usuario'
+</violation>
+<violation beginline="5" endline="5" begincolumn="1" endcolumn="59" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.persistencia.GestorAlbums'
+</violation>
+<violation beginline="9" endline="9" begincolumn="1" endcolumn="26" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.sql.ResultSet'
+</violation>
+<violation beginline="19" endline="19" begincolumn="5" endcolumn="57" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="20" endline="20" begincolumn="5" endcolumn="40" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="21" endline="21" begincolumn="5" endcolumn="18" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="23" endline="23" begincolumn="16" endcolumn="34" rule="MethodWithSameNameAsEnclosingClass" ruleset="Naming" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodWithSameNameAsEnclosingClass" priority="3">
+Classes should not have non-constructor methods with the same name as the class
+</violation>
+<violation beginline="23" endline="23" begincolumn="16" endcolumn="34" rule="MethodNamingConventions" ruleset="Naming" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="23" endline="23" begincolumn="27" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" variable="dni" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'dni' is not assigned and could be declared final
+</violation>
+<violation beginline="25" endline="25" begincolumn="9" endcolumn="23" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" variable="exit_code" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'exit_code' could be declared final
+</violation>
+<violation beginline="25" endline="25" begincolumn="13" endcolumn="21" rule="VariableNamingConventions" ruleset="Naming" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" variable="exit_code" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'exit_code' is not final.
+</violation>
+<violation beginline="26" endline="26" begincolumn="9" endcolumn="57" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" variable="query" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'query' could be declared final
+</violation>
+<violation beginline="27" endline="27" begincolumn="29" endcolumn="74" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="DeleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="33" endline="33" begincolumn="30" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="main" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'args' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="9" endcolumn="48" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="main" variable="deleteUser" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'deleteUser' could be declared final
+</violation>
+<violation beginline="35" endline="35" begincolumn="17" endcolumn="18" rule="ShortVariable" ruleset="Naming" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="main" variable="sc" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sc
+</violation>
+<violation beginline="35" endline="35" begincolumn="9" endcolumn="43" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="main" variable="sc" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'sc' could be declared final
+</violation>
+<violation beginline="37" endline="37" begincolumn="9" endcolumn="30" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeleteUser" class="DeleteUser" method="main" variable="dni" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'dni' could be declared final
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BuscarCancion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">d2pSpotify-BuscarCancion</a> &gt; <a href="index.source.html" class="el_package">com.drones2people.spotify.BuscarCancion</a> &gt; <span class="el_source">BuscarCancion.java</span></div><h1>BuscarCancion.java</h1><pre class="source lang-java linenums">package com.drones2people.spotify.BuscarCancion;
+import com.drones2people.spotify.persistencia.Agente;
+import com.drones2people.spotify.persistencia.GestorCanciones;
+import com.drones2people.spotify.dominio.Cancion;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+<span class="nc" id="L10">public class BuscarCancion</span>
+{
+    private PreparedStatement preparedStatement;
+    private Agente agente;
+    public Cancion buscarCancion(String nombre_cancion) {
+<span class="nc" id="L15">        Cancion cancion = new Cancion();</span>
+<span class="nc" id="L16">        String query = &quot;Select * FROM Cancion WHERE Nombre =&quot;+nombre_cancion+&quot;;&quot;;</span>
+        try {
+<span class="nc" id="L18">            preparedStatement = agente.getConnection().prepareStatement(query);</span>
+<span class="nc" id="L19">            ResultSet rs = preparedStatement.executeQuery();</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L21">                cancion.setNombre(rs.getString(&quot;Nombre&quot;));</span>
+<span class="nc" id="L22">                cancion.setArtista(rs.getInt(&quot;Artista&quot;));</span>
+<span class="nc" id="L23">                cancion.setDate(rs.getDate(&quot;fecha&quot;));</span>
+<span class="nc" id="L24">                cancion.setAlbum(rs.getString(&quot;album&quot;));</span>
+<span class="nc" id="L25">                cancion.setDuracion(rs.getDouble(&quot;Duracion&quot;));</span>
+            }
+<span class="nc" id="L27">        } catch (SQLException ex) {</span>
+<span class="nc" id="L28">            ex.printStackTrace();</span>
+<span class="nc" id="L29">        }</span>
+<span class="nc" id="L30">        return cancion;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

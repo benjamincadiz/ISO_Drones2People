@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>ModifySong xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../apidocs/com/drones2people/spotify/ModifySong/ModifySong.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> com.drones2people.spotify.ModifySong;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">import</strong> com.drones2people.spotify.persistencia.Agente;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.drones2people.spotify.persistencia.GestorAlbums;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.drones2people.spotify.persistencia.GestorCanciones;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.drones2people.spotify.persistencia.GestorUsuarios;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.drones2people.spotify.presentacion.gui;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.drones2people.spotify.dominio.*;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.sql.Date;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.sql.PreparedStatement;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.sql.SQLException;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> java.text.ParseException;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> java.text.SimpleDateFormat;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> java.util.Scanner;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * Hello world!</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/drones2people/spotify/ModifySong/ModifySong.html">ModifySong</a> {
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      GestorUsuarios gestorUsuarios = <strong class="jxr_keyword">new</strong> GestorUsuarios();
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      GestorAlbums gestorAlbums = <strong class="jxr_keyword">new</strong> GestorAlbums();
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      Agente agente ;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      PreparedStatement preparedStatement;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> <a href="../../../../com/drones2people/spotify/ModifySong/ModifySong.html">ModifySong</a>(Cancion cancion, <strong class="jxr_keyword">int</strong> option) <strong class="jxr_keyword">throws</strong> SQLException {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>              agente = Agente.getAgente();
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          } <strong class="jxr_keyword">catch</strong> (Exception ex) {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>              ex.printStackTrace();
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          }
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">int</strong> exit_code = 0;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          Usuario user = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          Album album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          <em class="jxr_comment">// Si existe el usuario en la base de datos y además tiene permisos para añadir canciones...</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <strong class="jxr_keyword">if</strong> (user.getNombre() != <strong class="jxr_keyword">null</strong> &amp;&amp; (user.isIs_admin() == <strong class="jxr_keyword">true</strong> || user.isIs_artist() == <strong class="jxr_keyword">true</strong>) &amp;&amp; album.getNombre() != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              String query = <span class="jxr_string">"UPDATE Cancion SET Nombre = ?,Artista = ?,Album = ?,Duracion = ?,Año = ?;"</span>;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>              preparedStatement = agente.getConnection().prepareStatement(query);
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              preparedStatement.setString(1, cancion.getNombre());
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>              preparedStatement.setInt(2, cancion.getArtista());
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>              preparedStatement.setDate(3, cancion.getDate());
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>              preparedStatement.setInt(4, album.getID());
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>              preparedStatement.setDouble(5, cancion.getDuracion());
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              preparedStatement.execute();
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              exit_code = 1; <em class="jxr_comment">// exit_code = 1 -&gt; canción no añadida correctamente</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          }
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">return</strong> exit_code;
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      }
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main( String[] args ) <strong class="jxr_keyword">throws</strong> ParseException,SQLException {
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <a href="../../../../com/drones2people/spotify/ModifySong/ModifySong.html">ModifySong</a> modifySong = <strong class="jxr_keyword">new</strong> <a href="../../../../com/drones2people/spotify/ModifySong/ModifySong.html">ModifySong</a>();
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          Scanner sc = <strong class="jxr_keyword">new</strong> Scanner(System.in);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          Album album = <strong class="jxr_keyword">new</strong> Album();
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          Cancion cancion = <strong class="jxr_keyword">new</strong> Cancion();
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          System.out.println(<span class="jxr_string">"¿Que parametro de la cancion quieres cambiar? \n 1.Nombre.\n 2.Artista\n 3.Fecha.\n 4.Album. \n 5.Duracion.\n"</span>);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <strong class="jxr_keyword">int</strong> elegido = sc.nextInt();
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">switch</strong> (elegido) {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>              <strong class="jxr_keyword">case</strong> 1:
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                  System.out.println(<span class="jxr_string">"Escriba el nuevo nombre que quiere cambiar:\n"</span>);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                  String nombre = sc.next();
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                  cancion.setNombre(nombre);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              <strong class="jxr_keyword">case</strong> 2:
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>                  System.out.println(<span class="jxr_string">"Escriba el nuevo artista que quiere cambiar:\n"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                  <strong class="jxr_keyword">int</strong> artista = sc.nextInt();
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>                  cancion.setArtista(artista);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              <strong class="jxr_keyword">case</strong> 3:
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>                  System.out.println(<span class="jxr_string">"Escriba la nueva fecha que quiere cambiar:\n"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                  String fecha = sc.next();
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                  SimpleDateFormat sdf = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"dd/MM/yyyy"</span>);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>                  Date date = (Date) sdf.parse(fecha);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                  cancion.setDate(date);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              <strong class="jxr_keyword">case</strong> 4:
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>                  System.out.println(<span class="jxr_string">"Escriba el nuevo album que quiere cambiar:\n"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>                  String albu = sc.next();
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>                  cancion.setAlbum(albu);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>              <strong class="jxr_keyword">case</strong> 5:
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>                  System.out.println(<span class="jxr_string">"Escriba la nueva duracion que quiere cambiar:\n"</span>);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>                  Double duracion = sc.nextDouble();
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>                  cancion.setDuracion(duracion);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          }
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              modifySong.ModifySong(cancion,elegido);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      }
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2017. All rights reserved.</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify.iml" filepath="$PROJECT_DIR$/d2pSpotify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-AddSongPlaylist/d2pSpotify-AddSongPlaylist.iml" filepath="$PROJECT_DIR$/d2pSpotify-AddSongPlaylist/d2pSpotify-AddSongPlaylist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-BorrarCancionPlaylist/d2pSpotify-BorrarCancionPlaylist.iml" filepath="$PROJECT_DIR$/d2pSpotify-BorrarCancionPlaylist/d2pSpotify-BorrarCancionPlaylist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-BuscarCancion/d2pSpotify-BuscarCancion.iml" filepath="$PROJECT_DIR$/d2pSpotify-BuscarCancion/d2pSpotify-BuscarCancion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-BuySong/d2pSpotify-BuySong.iml" filepath="$PROJECT_DIR$/d2pSpotify-BuySong/d2pSpotify-BuySong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-DelAlbum/d2pSpotify-DelAlbum.iml" filepath="$PROJECT_DIR$/d2pSpotify-DelAlbum/d2pSpotify-DelAlbum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-DeletePlayList/d2pSpotify-DeletePlayList.iml" filepath="$PROJECT_DIR$/d2pSpotify-DeletePlayList/d2pSpotify-DeletePlayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-DeleteUser/d2pSpotify-DeleteUser.iml" filepath="$PROJECT_DIR$/d2pSpotify-DeleteUser/d2pSpotify-DeleteUser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-DescargarAlbum/d2pSpotify-DescargarAlbum.iml" filepath="$PROJECT_DIR$/d2pSpotify-DescargarAlbum/d2pSpotify-DescargarAlbum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-EnviarMensaje/d2pSpotify-EnviarMensaje.iml" filepath="$PROJECT_DIR$/d2pSpotify-EnviarMensaje/d2pSpotify-EnviarMensaje.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-ModifySong/d2pSpotify-ModifySong.iml" filepath="$PROJECT_DIR$/d2pSpotify-ModifySong/d2pSpotify-ModifySong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-PausarCancion/d2pSpotify-PausarCancion.iml" filepath="$PROJECT_DIR$/d2pSpotify-PausarCancion/d2pSpotify-PausarCancion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-PlaySong/d2pSpotify-PlaySong.iml" filepath="$PROJECT_DIR$/d2pSpotify-PlaySong/d2pSpotify-PlaySong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-buyalbum/d2pSpotify-buyalbum.iml" filepath="$PROJECT_DIR$/d2pSpotify-buyalbum/d2pSpotify-buyalbum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-crearplaylist/d2pSpotify-crearplaylist.iml" filepath="$PROJECT_DIR$/d2pSpotify-crearplaylist/d2pSpotify-crearplaylist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-delcancion/d2pSpotify-delcancion.iml" filepath="$PROJECT_DIR$/d2pSpotify-delcancion/d2pSpotify-delcancion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-descargarCancion/d2pSpotify-descargarCancion.iml" filepath="$PROJECT_DIR$/d2pSpotify-descargarCancion/d2pSpotify-descargarCancion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d2pSpotify-pagospaypal/d2pSpotify-pagospaypal.iml" filepath="$PROJECT_DIR$/d2pSpotify-pagospaypal/d2pSpotify-pagospaypal.iml" />
+    </modules>
+  </component>
+</project>

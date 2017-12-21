@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:02:11.572">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-pagospaypal\src\main\java\com\drones2people\spotify\pagospaypal\PagosPaypal.java">
+<violation beginline="14" endline="14" begincolumn="12" endcolumn="27" rule="UnnecessaryConstructor" ruleset="Controversial" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="PagosPaypal" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#UnnecessaryConstructor" priority="3">
+Avoid unnecessary constructors - the compiler will generate these for you
+</violation>
+<violation beginline="14" endline="14" begincolumn="12" endcolumn="27" rule="UncommentedEmptyConstructor" ruleset="Design" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="PagosPaypal" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="19" endline="19" begincolumn="17" endcolumn="72" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="commandUnix" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'commandUnix' could be declared final
+</violation>
+<violation beginline="21" endline="21" begincolumn="17" endcolumn="72" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="builder" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'builder' could be declared final
+</violation>
+<violation beginline="23" endline="23" begincolumn="17" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="process" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'process' could be declared final
+</violation>
+<violation beginline="24" endline="24" begincolumn="17" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'scanner' could be declared final
+</violation>
+<violation beginline="24" endline="24" begincolumn="47" endcolumn="70" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="29" endline="29" begincolumn="17" endcolumn="33" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="36" endline="36" begincolumn="17" endcolumn="97" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="commandWindows" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'commandWindows' could be declared final
+</violation>
+<violation beginline="38" endline="38" begincolumn="17" endcolumn="75" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="builder" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'builder' could be declared final
+</violation>
+<violation beginline="40" endline="40" begincolumn="17" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="process" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'process' could be declared final
+</violation>
+<violation beginline="41" endline="41" begincolumn="17" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'scanner' could be declared final
+</violation>
+<violation beginline="41" endline="41" begincolumn="47" endcolumn="70" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="46" endline="46" begincolumn="17" endcolumn="33" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.pagospaypal" class="PagosPaypal" method="pagar" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+</file>
+</pmd>

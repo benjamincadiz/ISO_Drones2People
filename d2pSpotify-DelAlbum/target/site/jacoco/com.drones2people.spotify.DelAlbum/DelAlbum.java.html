@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DelAlbum.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">d2pSpotify-DelAlbum</a> &gt; <a href="index.source.html" class="el_package">com.drones2people.spotify.DelAlbum</a> &gt; <span class="el_source">DelAlbum.java</span></div><h1>DelAlbum.java</h1><pre class="source lang-java linenums">package com.drones2people.spotify.DelAlbum;
+
+import com.drones2people.spotify.dominio.Cancion;
+import com.drones2people.spotify.dominio.Album;
+import com.drones2people.spotify.dominio.Usuario;
+import com.drones2people.spotify.persistencia.Agente;
+import com.drones2people.spotify.persistencia.GestorUsuarios;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+<span class="nc" id="L12">public class DelAlbum</span>
+{
+    PreparedStatement preparedStatement;
+    GestorUsuarios gestorUsuarios;
+    Agente agente;
+public void eliminarAlbum(Album album) {
+<span class="nc" id="L18">        int artista = album.getArtista();</span>
+<span class="nc" id="L19">        Usuario usuario = null;</span>
+        try {
+<span class="nc" id="L21">            usuario = gestorUsuarios.selectUser_byDNI(artista);</span>
+<span class="nc" id="L22">        } catch (SQLException ex) {</span>
+<span class="nc" id="L23">            ex.printStackTrace();</span>
+<span class="nc" id="L24">        }</span>
+        // Si existe el usuario en la base de datos y además tiene permisos para borrar albums
+<span class="nc bnc" id="L26" title="All 6 branches missed.">        if (usuario != null &amp;&amp; (usuario.isIs_admin() == true || usuario.isIs_artist() == true)) {</span>
+<span class="nc" id="L27">            String query = &quot;DELETE FROM ALBUM WHERE ID=&quot;+album.getID()+&quot;;&quot;;</span>
+            try {
+<span class="nc" id="L29">                preparedStatement = agente.getConnection().prepareStatement(query);</span>
+<span class="nc" id="L30">                preparedStatement.execute();</span>
+<span class="nc" id="L31">            } catch (SQLException ex) {</span>
+<span class="nc" id="L32">                ex.printStackTrace();</span>
+<span class="nc" id="L33">            }</span>
+        }
+<span class="nc" id="L35">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

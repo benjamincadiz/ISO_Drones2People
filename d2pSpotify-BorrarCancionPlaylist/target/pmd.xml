@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:04:38.498">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-BorrarCancionPlaylist\src\main\java\com\drones2people\spotify\BorrarCancionPlaylist\BorrarCancionPlaylist.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="55" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="13" endline="27" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="15" endline="15" begincolumn="5" endcolumn="40" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="16" endline="16" begincolumn="5" endcolumn="18" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="17" endline="17" begincolumn="17" endcolumn="49" rule="MethodNamingConventions" ruleset="Naming" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" method="BorrarCancionP" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="17" endline="17" begincolumn="32" endcolumn="48" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" method="BorrarCancionP" variable="playlist" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'playlist' is not assigned and could be declared final
+</violation>
+<violation beginline="18" endline="18" begincolumn="9" endcolumn="130" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" method="BorrarCancionP" variable="query" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'query' could be declared final
+</violation>
+<violation beginline="18" endline="18" begincolumn="97" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" method="BorrarCancionP" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="20" endline="20" begincolumn="33" endcolumn="78" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BorrarCancionPlaylist" class="BorrarCancionPlaylist" method="BorrarCancionP" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+</file>
+</pmd>

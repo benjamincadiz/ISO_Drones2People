@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:04:19.384">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-DeletePlayList\src\main\java\com\drones2people\spotify\DeletePlayList\DeletePlayList.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="48" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="11" endline="28" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="13" endline="13" begincolumn="17" endcolumn="45" rule="MethodWithSameNameAsEnclosingClass" ruleset="Naming" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodWithSameNameAsEnclosingClass" priority="3">
+Classes should not have non-constructor methods with the same name as the class
+</violation>
+<violation beginline="13" endline="13" begincolumn="17" endcolumn="45" rule="MethodNamingConventions" ruleset="Naming" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="13" endline="13" begincolumn="32" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" variable="nombre" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'nombre' is not assigned and could be declared final
+</violation>
+<violation beginline="14" endline="14" begincolumn="9" endcolumn="28" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" variable="agente" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'agente' could be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="9" endcolumn="72" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" variable="query" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'query' could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="13" endcolumn="96" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" variable="preparedStatement" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'preparedStatement' could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="51" endcolumn="96" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="17" endline="17" begincolumn="51" endcolumn="96" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="18" endline="18" begincolumn="13" endcolumn="39" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DeletePlayList" class="DeletePlayList" method="DeletePlayList" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+</file>
+</pmd>

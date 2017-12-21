@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:02:24.459">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-descargarCancion\src\main\java\com\drones2people\spotify\descargarCancion\DescargarCancion.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="50" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="11" endline="11" begincolumn="12" endcolumn="33" rule="UnnecessaryConstructor" ruleset="Controversial" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="DescargarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#UnnecessaryConstructor" priority="3">
+Avoid unnecessary constructors - the compiler will generate these for you
+</violation>
+<violation beginline="11" endline="11" begincolumn="12" endcolumn="33" rule="UncommentedEmptyConstructor" ruleset="Design" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="DescargarCancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="14" endline="20" begincolumn="17" endcolumn="34" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="descargarCancion" variable="downloaded" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'downloaded' (lines '14'-'20').
+</violation>
+<violation beginline="14" endline="25" begincolumn="13" endcolumn="30" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="descargarCancion" variable="downloaded" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'downloaded' (lines '14'-'25').
+</violation>
+<violation beginline="15" endline="15" begincolumn="9" endcolumn="37" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="descargarCancion" variable="host" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'host' could be declared final
+</violation>
+<violation beginline="16" endline="16" begincolumn="9" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="descargarCancion" variable="puerto" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'puerto' could be declared final
+</violation>
+<violation beginline="18" endline="18" begincolumn="13" endcolumn="52" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="descargarCancion" variable="socket" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'socket' could be declared final
+</violation>
+<violation beginline="20" endline="25" begincolumn="13" endcolumn="30" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.descargarCancion" class="DescargarCancion" method="descargarCancion" variable="downloaded" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'downloaded' (lines '20'-'25').
+</violation>
+</file>
+</pmd>

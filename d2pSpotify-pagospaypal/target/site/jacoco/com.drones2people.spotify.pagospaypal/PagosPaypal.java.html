@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PagosPaypal.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">d2pSpotify-pagospaypal</a> &gt; <a href="index.source.html" class="el_package">com.drones2people.spotify.pagospaypal</a> &gt; <span class="el_source">PagosPaypal.java</span></div><h1>PagosPaypal.java</h1><pre class="source lang-java linenums">package com.drones2people.spotify.pagospaypal;
+
+import org.apache.commons.lang3.SystemUtils;
+
+import java.util.Scanner;
+
+
+/**
+ * @author ivangarrera
+ *
+ */
+public class PagosPaypal {
+
+<span class="nc" id="L14">    public PagosPaypal() {}</span>
+
+    public boolean pagar() {
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (SystemUtils.IS_OS_LINUX) {</span>
+            try {
+<span class="nc" id="L19">                String[] commandUnix = {&quot;wget&quot;,&quot; https://www.paypal.me&quot;};</span>
+
+<span class="nc" id="L21">                ProcessBuilder builder = new ProcessBuilder(commandUnix);</span>
+<span class="nc" id="L22">                builder.redirectErrorStream(true);</span>
+<span class="nc" id="L23">                Process process = builder.start();</span>
+<span class="nc" id="L24">                Scanner scanner = new Scanner(process.getInputStream());</span>
+
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                while (scanner.hasNext()) {</span>
+<span class="nc" id="L27">                    System.out.println(scanner.nextLine());</span>
+                }
+<span class="nc" id="L29">                process.waitFor();</span>
+
+<span class="nc" id="L31">            } catch (Exception ex) {</span>
+<span class="nc" id="L32">                ex.printStackTrace();</span>
+<span class="nc" id="L33">            }</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        } else if (SystemUtils.IS_OS_WINDOWS) {</span>
+            try {
+<span class="nc" id="L36">                String [] commandWindows = {&quot;Invoke-WebRequest&quot;, &quot;-URI&quot;, &quot;https://www.paypal.me&quot;};</span>
+
+<span class="nc" id="L38">                ProcessBuilder builder = new ProcessBuilder(commandWindows);</span>
+<span class="nc" id="L39">                builder.redirectErrorStream(true);</span>
+<span class="nc" id="L40">                Process process = builder.start();</span>
+<span class="nc" id="L41">                Scanner scanner = new Scanner(process.getInputStream());</span>
+
+<span class="nc bnc" id="L43" title="All 2 branches missed.">                while (scanner.hasNext()) {</span>
+<span class="nc" id="L44">                    System.out.println(scanner.nextLine());</span>
+                }
+<span class="nc" id="L46">                process.waitFor();</span>
+
+<span class="nc" id="L48">            } catch (Exception ex) {</span>
+<span class="nc" id="L49">                ex.printStackTrace();</span>
+<span class="nc" id="L50">            }</span>
+        }
+<span class="nc" id="L52">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

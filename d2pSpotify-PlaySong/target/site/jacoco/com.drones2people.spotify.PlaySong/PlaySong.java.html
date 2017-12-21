@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlaySong.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">d2pSpotify-PlaySong</a> &gt; <a href="index.source.html" class="el_package">com.drones2people.spotify.PlaySong</a> &gt; <span class="el_source">PlaySong.java</span></div><h1>PlaySong.java</h1><pre class="source lang-java linenums">package com.drones2people.spotify.PlaySong;
+
+import com.drones2people.spotify.dominio.Cancion;
+import com.drones2people.spotify.dominio.Usuario;
+import com.drones2people.spotify.persistencia.Agente;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+<span class="nc" id="L16">public class PlaySong {</span>
+    PreparedStatement preparedStatement;
+    Agente agente;
+
+    public int PlaySong(Cancion cancion,int artista) throws SQLException{
+<span class="nc" id="L21">        int retorno  = 1;// Retorna 0 si reproduce bien la cancion</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if ( cancion.getNombre() != null){</span>
+<span class="nc" id="L23">            System.out.println(&quot;Reproduciendo &quot;+cancion.getNombre()+&quot; con éxito&quot;);</span>
+<span class="nc" id="L24">            retorno = 0;</span>
+        }
+<span class="nc" id="L26">        return retorno;</span>
+    }
+    public Cancion selectSong (String name, int artist) throws SQLException {
+<span class="nc" id="L29">        Cancion song = new Cancion();</span>
+<span class="nc" id="L30">        String query = &quot;SELECT * FROM Cancion WHERE nombre = ? and artista = ?&quot;;</span>
+
+<span class="nc" id="L32">        preparedStatement = agente.getConnection().prepareStatement(query);</span>
+<span class="nc" id="L33">        preparedStatement.setString(1, name);</span>
+<span class="nc" id="L34">        preparedStatement.setInt(2, artist);</span>
+<span class="nc" id="L35">        ResultSet resultSet = preparedStatement.executeQuery();</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        while (resultSet.next()) {</span>
+<span class="nc" id="L37">            song.setNombre(resultSet.getString(&quot;Nombre&quot;));</span>
+<span class="nc" id="L38">            song.setArtista(resultSet.getInt(&quot;Artista&quot;));</span>
+<span class="nc" id="L39">            song.setDate(resultSet.getDate(&quot;fecha&quot;));</span>
+<span class="nc" id="L40">            song.setAlbum(resultSet.getString(&quot;album&quot;));</span>
+<span class="nc" id="L41">            song.setDuracion(resultSet.getDouble(&quot;Duracion&quot;));</span>
+        }
+
+<span class="nc" id="L44">        return song;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

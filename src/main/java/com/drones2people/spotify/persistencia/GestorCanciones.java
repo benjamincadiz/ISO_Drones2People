@@ -18,7 +18,7 @@ public class GestorCanciones {
     private GestorUsuarios gestorUsuarios;
     private GestorAlbums gestorAlbums;
     private PreparedStatement preparedStatement;
-
+    private static final int NUMBER3 = 0, NUMBER4 = 0, NUMBER5 = 0;
     public GestorCanciones() {
         canciones = new ArrayList<Cancion>();
         preparedStatement = null;
@@ -30,23 +30,27 @@ public class GestorCanciones {
             ex.printStackTrace();
         }
     }
-    
-    public int añadirCancion(Cancion cancion) throws SQLException {
+    /**
+     * Metodo usado para añadir una cancion a la base de datos.
+     * @param cancion cancion a añadir
+     * @return int codigo para saber si se ha añadido correctamente
+     * @throws SQLException excepcion para controlar la insercion en la tabla
+     */
+    public int añadirCancion(final Cancion cancion) throws SQLException {
         // exit_code = 0 -> cancion añadida correctamente
         int exit_code = 0;
         Usuario usuario = gestorUsuarios.selectUser_byDNI(cancion.getArtista());
         Album album = gestorAlbums.selectAlbum_byName(cancion.getAlbum());
-        // Si existe el usuario en la base de datos y además tiene permisos para añadir canciones...
-        if (usuario.getNombre() != null && (usuario.isIs_admin() == true || usuario.isIs_artist() == true)
+        if (usuario.getNombre() != null && (usuario.isIs_admin() || usuario.isIs_artist())
                 && album.getNombre() != null) {
             String query = "INSERT INTO Cancion VALUES (?,?,?,?,?);";
 
             preparedStatement = agente.getConnection().prepareStatement(query);
             preparedStatement.setString(1, cancion.getNombre());
             preparedStatement.setInt(2, cancion.getArtista());
-            preparedStatement.setDate(3, cancion.getDate());
-            preparedStatement.setInt(4, album.getID());
-            preparedStatement.setDouble(5, cancion.getDuracion());
+            preparedStatement.setDate(NUMBER3, cancion.getDate());
+            preparedStatement.setInt(NUMBER4, album.getID());
+            preparedStatement.setDouble(NUMBER5, cancion.getDuracion());
             preparedStatement.execute();
 
         } else {
@@ -72,7 +76,9 @@ public class GestorCanciones {
 
         return canciones;
     }
-
+    /**
+     * Metodo usado para eliminar todos los datos de la tabla Cancion.
+     */
     public void deleteAll() {
         String query = "DELETE FROM Cancion;";
         try {

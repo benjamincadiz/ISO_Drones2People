@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:03:05.023">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-DelAlbum\src\main\java\com\drones2people\spotify\DelAlbum\DelAlbum.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="42" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="3" endline="3" begincolumn="1" endcolumn="49" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.dominio.Cancion'
+</violation>
+<violation beginline="12" endline="36" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="14" endline="14" begincolumn="5" endcolumn="40" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="15" endline="15" begincolumn="5" endcolumn="34" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="16" endline="16" begincolumn="5" endcolumn="18" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="17" endline="17" begincolumn="27" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" variable="album" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'album' is not assigned and could be declared final
+</violation>
+<violation beginline="18" endline="18" begincolumn="9" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" variable="artista" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'artista' could be declared final
+</violation>
+<violation beginline="19" endline="21" begincolumn="13" endcolumn="62" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" variable="usuario" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'usuario' (lines '19'-'21').
+</violation>
+<violation beginline="26" endline="26" begincolumn="57" endcolumn="60" rule="SimplifyBooleanExpressions" ruleset="Design" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimplifyBooleanExpressions" priority="3">
+Avoid unnecessary comparisons in boolean expressions
+</violation>
+<violation beginline="26" endline="26" begincolumn="90" endcolumn="93" rule="SimplifyBooleanExpressions" ruleset="Design" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimplifyBooleanExpressions" priority="3">
+Avoid unnecessary comparisons in boolean expressions
+</violation>
+<violation beginline="26" endline="26" begincolumn="33" endcolumn="52" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="26" endline="26" begincolumn="65" endcolumn="85" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="27" endline="27" begincolumn="13" endcolumn="74" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" variable="query" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'query' could be declared final
+</violation>
+<violation beginline="29" endline="29" begincolumn="37" endcolumn="82" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.DelAlbum" class="DelAlbum" method="eliminarAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+</file>
+</pmd>

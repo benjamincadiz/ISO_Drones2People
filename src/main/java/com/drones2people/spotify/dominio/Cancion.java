@@ -12,8 +12,16 @@ public class Cancion {
     private Date date;
 
     public Cancion () {}
-
-    public Cancion(String nombre, int artista, String album, double duracion, Date date) {
+    /**
+     * Constructor de la clase Cancion.
+     * @param nombre nombre de la cancion
+     * @param artista identificador del artista propietario de la cancion
+     * @param album nombre del album al que pertenece la cancion
+     * @param duracion duracion de la cancion
+     * @param date fecha de creacion de la cancion
+     */
+    public Cancion(final String nombre, final int artista,
+                   final String album, final double duracion, final Date date) {
         this.nombre = nombre;
         this.artista = artista;
         this.album = album;
@@ -21,54 +29,54 @@ public class Cancion {
         this.date = date;
     }
 
-    public String getNombre() {
+    public final String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public final void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public int getArtista() {
+    public final int getArtista() {
         return artista;
     }
 
-    public void setArtista(int artista) {
+    public final void setArtista(int artista) {
         this.artista = artista;
     }
 
-    public String getAlbum() {
+    public final String getAlbum() {
         return album;
     }
 
-    public void setAlbum(String album) {
+    public final void setAlbum(String album) {
         this.album = album;
     }
 
-    public double getDuracion() {
+    public final double getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(double duracion) {
+    public final void setDuracion(double duracion) {
         this.duracion = duracion;
     }
 
-    public Date getDate() {
+    public final Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public final void setDate(Date date) {
         this.date = date;
     }
 
     @Override
     public String toString() {
-        return "Cancion{" +
-                "nombre='" + nombre + '\'' +
-                ", artista=" + artista +
-                ", album=" + album +
-                ", duracion=" + duracion +
-                ", date=" + date +
-                '}';
+        return "Cancion{"
+                + "nombre='" + nombre + '\''
+                + ", artista=" + artista
+                + ", album=" + album
+                + ", duracion=" + duracion
+                + ", date=" + date
+                + '}';
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:02:55.120">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-EnviarMensaje\src\main\java\com\drones2people\spotify\EnviarMensaje\EnviarMensaje.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="47" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.EnviarMensaje" class="EnviarMensaje" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="7" endline="12" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.EnviarMensaje" class="EnviarMensaje" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+</file>
+</pmd>

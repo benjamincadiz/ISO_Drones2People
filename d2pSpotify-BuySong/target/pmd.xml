@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:03:38.010">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-BuySong\src\main\java\com\drones2people\spotify\BuySong\BuySong.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="41" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.BuySong" class="BuySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="16" endline="46" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.BuySong" class="BuySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="17" endline="17" begincolumn="5" endcolumn="40" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.BuySong" class="BuySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="18" endline="18" begincolumn="5" endcolumn="18" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.BuySong" class="BuySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="19" endline="19" begincolumn="5" endcolumn="36" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.BuySong" class="BuySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="20" endline="20" begincolumn="5" endcolumn="34" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.BuySong" class="BuySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="23" endline="23" begincolumn="28" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" variable="cancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'cancion' is not assigned and could be declared final
+</violation>
+<violation beginline="30" endline="30" begincolumn="9" endcolumn="79" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" variable="query" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'query' could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="29" endcolumn="74" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="34" endline="34" begincolumn="19" endcolumn="27" rule="CloseResource" ruleset="Design" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" variable="resultSet" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#CloseResource" priority="3">
+Ensure that resources like this ResultSet object are closed after use
+</violation>
+<violation beginline="34" endline="34" begincolumn="9" endcolumn="62" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" variable="resultSet" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'resultSet' could be declared final
+</violation>
+<violation beginline="36" endline="36" begincolumn="16" endcolumn="31" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="37" endline="37" begincolumn="31" endcolumn="59" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="38" endline="38" begincolumn="32" endcolumn="58" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="39" endline="39" begincolumn="29" endcolumn="54" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="40" endline="40" begincolumn="33" endcolumn="63" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="42" endline="42" begincolumn="21" endcolumn="22" rule="ShortVariable" ruleset="Naming" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" variable="pp" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like pp
+</violation>
+<violation beginline="42" endline="42" begincolumn="9" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.BuySong" class="BuySong" method="buySong" variable="pp" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'pp' could be declared final
+</violation>
+</file>
+</pmd>

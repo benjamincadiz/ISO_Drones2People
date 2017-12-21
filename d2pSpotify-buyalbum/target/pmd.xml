@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:02:34.004">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-buyalbum\src\main\java\com\drones2people\spotify\buyalbum\BuyAlbum.java">
+<violation beginline="8" endline="15" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Controversial" package="com.drones2people.spotify.buyalbum" class="BuyAlbum" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#AtLeastOneConstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="9" endline="9" begincolumn="27" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.buyalbum" class="BuyAlbum" method="buyAlbum" variable="album" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'album' is not assigned and could be declared final
+</violation>
+<violation beginline="11" endline="11" begincolumn="21" endcolumn="22" rule="ShortVariable" ruleset="Naming" package="com.drones2people.spotify.buyalbum" class="BuyAlbum" method="buyAlbum" variable="pp" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like pp
+</violation>
+<violation beginline="11" endline="11" begincolumn="9" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.buyalbum" class="BuyAlbum" method="buyAlbum" variable="pp" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'pp' could be declared final
+</violation>
+</file>
+</pmd>

@@ -46,7 +46,7 @@ public class Agente {
         return mBD;
     }
 
-    public ResultSet read(String sql_query) throws SQLException {
+    public ResultSet read(final String sql_query) throws SQLException {
         preparedStatement = mBD.prepareStatement(sql_query);
         return preparedStatement.executeQuery(sql_query);
     }

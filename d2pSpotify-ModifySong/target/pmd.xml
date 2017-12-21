@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-21T20:03:49.403">
+<file name="C:\Users\Rebeca\Desktop\EliminarCancion\ISO_Drones2People\d2pSpotify-ModifySong\src\main\java\com\drones2people\spotify\ModifySong\ModifySong.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="44" rule="PackageCase" ruleset="Naming" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="4" endline="4" begincolumn="1" endcolumn="62" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.persistencia.GestorCanciones'
+</violation>
+<violation beginline="6" endline="6" begincolumn="1" endcolumn="50" rule="UnusedImports" ruleset="Import Statements" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.drones2people.spotify.presentacion.gui'
+</violation>
+<violation beginline="21" endline="21" begincolumn="5" endcolumn="57" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="22" endline="22" begincolumn="5" endcolumn="51" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="23" endline="23" begincolumn="5" endcolumn="19" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="24" endline="24" begincolumn="5" endcolumn="40" rule="DefaultPackage" ruleset="Controversial" package="com.drones2people.spotify.ModifySong" class="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="26" endline="26" begincolumn="16" endcolumn="54" rule="MethodWithSameNameAsEnclosingClass" ruleset="Naming" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodWithSameNameAsEnclosingClass" priority="3">
+Classes should not have non-constructor methods with the same name as the class
+</violation>
+<violation beginline="26" endline="26" begincolumn="16" endcolumn="54" rule="MethodNamingConventions" ruleset="Naming" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="26" endline="26" begincolumn="27" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="cancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'cancion' is not assigned and could be declared final
+</violation>
+<violation beginline="26" endline="26" begincolumn="44" endcolumn="53" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="option" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'option' is not assigned and could be declared final
+</violation>
+<violation beginline="32" endline="49" begincolumn="13" endcolumn="25" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="exit_code" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'exit_code' (lines '32'-'49').
+</violation>
+<violation beginline="32" endline="32" begincolumn="13" endcolumn="21" rule="VariableNamingConventions" ruleset="Naming" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="exit_code" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'exit_code' is not final.
+</violation>
+<violation beginline="33" endline="33" begincolumn="9" endcolumn="76" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="user" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'user' could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="9" endcolumn="73" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="album" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'album' could be declared final
+</violation>
+<violation beginline="37" endline="37" begincolumn="63" endcolumn="66" rule="SimplifyBooleanExpressions" ruleset="Design" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimplifyBooleanExpressions" priority="3">
+Avoid unnecessary comparisons in boolean expressions
+</violation>
+<violation beginline="37" endline="37" begincolumn="93" endcolumn="96" rule="SimplifyBooleanExpressions" ruleset="Design" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimplifyBooleanExpressions" priority="3">
+Avoid unnecessary comparisons in boolean expressions
+</violation>
+<violation beginline="37" endline="37" begincolumn="13" endcolumn="28" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="37" endline="37" begincolumn="42" endcolumn="58" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="37" endline="37" begincolumn="71" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="37" endline="37" begincolumn="102" endcolumn="118" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="38" endline="38" begincolumn="13" endcolumn="102" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" variable="query" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'query' could be declared final
+</violation>
+<violation beginline="40" endline="40" begincolumn="33" endcolumn="78" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="44" endline="44" begincolumn="41" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="ModifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="53" endline="53" begincolumn="30" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'args' is not assigned and could be declared final
+</violation>
+<violation beginline="54" endline="54" begincolumn="9" endcolumn="48" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="modifySong" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'modifySong' could be declared final
+</violation>
+<violation beginline="55" endline="55" begincolumn="17" endcolumn="18" rule="ShortVariable" ruleset="Naming" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="sc" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sc
+</violation>
+<violation beginline="55" endline="55" begincolumn="9" endcolumn="43" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="sc" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'sc' could be declared final
+</violation>
+<violation beginline="56" endline="91" begincolumn="15" endcolumn="33" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="album" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'album' (lines '56'-'91').
+</violation>
+<violation beginline="56" endline="56" begincolumn="9" endcolumn="33" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="album" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'album' could be declared final
+</violation>
+<violation beginline="57" endline="57" begincolumn="9" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="cancion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'cancion' could be declared final
+</violation>
+<violation beginline="59" endline="59" begincolumn="9" endcolumn="34" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="elegido" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'elegido' could be declared final
+</violation>
+<violation beginline="60" endline="88" begincolumn="9" endcolumn="9" rule="SwitchStmtsShouldHaveDefault" ruleset="Design" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SwitchStmtsShouldHaveDefault" priority="3">
+Switch statements should have a default label
+</violation>
+<violation beginline="63" endline="63" begincolumn="17" endcolumn="41" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="nombre" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'nombre' could be declared final
+</violation>
+<violation beginline="68" endline="68" begincolumn="17" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="artista" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'artista' could be declared final
+</violation>
+<violation beginline="73" endline="73" begincolumn="17" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="fecha" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'fecha' could be declared final
+</violation>
+<violation beginline="74" endline="74" begincolumn="17" endcolumn="73" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="sdf" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'sdf' could be declared final
+</violation>
+<violation beginline="74" endline="74" begincolumn="40" endcolumn="73" rule="SimpleDateFormatNeedsLocale" ruleset="Design" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/design.html#SimpleDateFormatNeedsLocale" priority="3">
+When instantiating a SimpleDateFormat object, specify a Locale
+</violation>
+<violation beginline="75" endline="75" begincolumn="17" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="date" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'date' could be declared final
+</violation>
+<violation beginline="80" endline="80" begincolumn="17" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="albu" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'albu' could be declared final
+</violation>
+<violation beginline="85" endline="85" begincolumn="17" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="com.drones2people.spotify.ModifySong" class="ModifySong" method="main" variable="duracion" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'duracion' could be declared final
+</violation>
+</file>
+</pmd>

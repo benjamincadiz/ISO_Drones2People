@@ -19,6 +19,7 @@ import java.util.Scanner;
 public class gui {
     private static Scanner sc = new Scanner(System.in);
     private static Usuario usuarioRegistrado = null;
+    private static final int NUMBER3 = 0, NUMBER4 = 0, NUMBER5 = 0;
 
     public static void main (String [] args) {
         boolean seguir = true;
@@ -49,10 +50,7 @@ public class gui {
                         // Si el usuario puede añadir canciones, albums
                         if (user.isIs_artist()) {
                             menuArtist(gestorCanciones, gestorAlbums);
-                        } else if (user.isIs_admin()) {   // Si el usuario es un administrador...
-
-
-                        } else { // Es un usuario normal
+                        } else if (!user.isIs_admin()) {   // Si el usuario es un administrador...
                             menuUsuario(gestorCanciones, gestorAlbums);
                         }
                     } else
